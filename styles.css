@@ -1,0 +1,5 @@
+/* css styles */
+a {
+  text-decoration: none;  /* Removes underline */
+  color: #007bff;  /* Keeps link color (adjust as needed) */
+}

@@ -1,0 +1,56 @@
+---
+title: "Dessa Keys"
+about:
+  template: trestles
+  image: AdobeStock_238244825.jpeg
+  links:
+    - icon: bluesky
+      text: Bluesky
+      href: https://bsky.app/
+    - icon: github
+      text: Github
+      href: https://github.com/dessak
+format:
+  html:
+    page-layout: full
+    css: styles.css
+---
+
+Welcome and thanks for stopping by. I am a student currently enrolled in The University of Arizona's Geographic Information Systems Technology - Master of Science Program. I aspire to use the skills I am learning to work with remote sensing with a focus on climate and environmental related issues. I also have experience working directly with data; cleaning and transforming raw data into useful information and insight. Have a look at my portfolio [here.](Portfolio.qmd)
+
+## Education
+
+University of Arizona \| Tucson, AZ\
+M.S. in GIST \| Jan 2025 - July 2026
+
+University of Arizona \| Tucson, AZ\
+B.S. in Information Science - Data Science Emphasis \| Aug 2021 - May 2024
+
+## Experience
+
+**University of Arizona** \| *Research Data Specialist II*\
+April 2021 - Present
+
+**Southern Arizona AIDS Foundation** \| *Support Services Associate*\
+Aug 2019 - April 2021
+
+**Pima Community College** \| *Program Assistant*\
+November 2016 - August 2019
+
+## Skills
+
+GIS: ArcGIS Pro
+
+Programming: Python, R
+
+Database: PostgreSQL, Access
+
+Office: Google Suite (Collab, Docs, Sheets, Slides), Microsoft Office (Excel, Access, Word, Powerpoint, Publisher)
+
+Graphic: Photoshop, Illustrator, Inkscape, GIMP
+
+Design: Blender, Fusion 360
+
+## Languages
+
+English, Spanish

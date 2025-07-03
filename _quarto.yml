@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Dessa Keys"
+  navbar:
+    right:
+      - href: index.qmd
+        text: Home
+      - Portfolio.qmd
+
+format:
+  html:
+    theme:
+      - darkly
+      - brand
+    css: styles.css
+    toc: true
+
+editor: visual
+

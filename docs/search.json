@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Dessa Keys",
+    "section": "",
+    "text": "Welcome and thanks for stopping by. I am a student currently enrolled in The University of Arizona’s Geographic Information Systems Technology - Master of Science Program. I aspire to use the skills I am learning to work with remote sensing with a focus on climate and environmental related issues. I also have experience working directly with data; cleaning and transforming raw data into useful information and insight. Have a look at my portfolio here."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Dessa Keys",
+    "section": "Education",
+    "text": "Education\nUniversity of Arizona | Tucson, AZ\nM.S. in GIST | Jan 2025 - July 2026\nUniversity of Arizona | Tucson, AZ\nB.S. in Information Science - Data Science Emphasis | Aug 2021 - May 2024"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Dessa Keys",
+    "section": "Experience",
+    "text": "Experience\nUniversity of Arizona | Research Data Specialist II\nApril 2021 - Present\nSouthern Arizona AIDS Foundation | Support Services Associate\nAug 2019 - April 2021\nPima Community College | Program Assistant\nNovember 2016 - August 2019"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Dessa Keys",
+    "section": "Skills",
+    "text": "Skills\nGIS: ArcGIS Pro\nProgramming: Python, R\nDatabase: PostgreSQL, Access\nOffice: Google Suite (Collab, Docs, Sheets, Slides), Microsoft Office (Excel, Access, Word, Powerpoint, Publisher)\nGraphic: Photoshop, Illustrator, Inkscape, GIMP\nDesign: Blender, Fusion 360"
+  },
+  {
+    "objectID": "index.html#languages",
+    "href": "index.html#languages",
+    "title": "Dessa Keys",
+    "section": "Languages",
+    "text": "Languages\nEnglish, Spanish"
+  },
+  {
+    "objectID": "Portfolio.html",
+    "href": "Portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "ISTA498-Capstone\nProject Radiance: Group Capstone Project for the University of Arizona ISTA 498 \nTeam Members:\n\nNate Cutler (Project Manager, Germany, PowerBI Visualizations)\nDessa Keys (US, Tableau Dashboard)\nJuan Flores (Japan, Poster Design)\nMichael Lord (UK)\n\nThis project was conceptualized by Nate Cutler as the capstone project for the team and presented in December 2023. It is intended to highlight various skills learned for the Information Science degree from the University of Arizona’s iSchool and therefore employs various methods and languages.\nData Sources\n\nUS: Environmental Protection Agency’s RadNet\nGermany: Bundesamt fur Strahlenschutz\nJapan: Database for Radioactive Substance Monitoring Data\nUK: Department for Energy Security and Net Zero\n\nProject Poster\n\n\n\nTucson Weather\nAnalysing Historic Tucson Weather Data\n This repository contains various explorations of historic weather data for Tucson, Arizona pulled from NOAA’s Climate Data Online (CDO)\nRelevant Links\nData Source:\nhttps://www.ncei.noaa.gov/access/services/data/v1 (HTTP 1.1 GET request endpoint)\nRequest Endpoint Parameters:\nhttps://www.ncei.noaa.gov/support/access-data-service-api-user-documentation\nStation List:\n    'US1AZPM0003', 'US1AZPM0004', 'US1AZPM0005', 'US1AZPM0007', 'US1AZPM0010', 'US1AZPM0014', 'US1AZPM0019',\n    'US1AZPM0024', 'US1AZPM0031', 'US1AZPM0044', 'US1AZPM0050', 'US1AZPM0051', 'US1AZPM0054', 'US1AZPM0072',\n    'US1AZPM0082', 'US1AZPM0087', 'US1AZPM0093', 'US1AZPM0099', 'US1AZPM0103', 'US1AZPM0104', 'US1AZPM0106',\n    'US1AZPM0107', 'US1AZPM0108', 'US1AZPM0111', 'US1AZPM0114', 'US1AZPM0118', 'US1AZPM0119', 'US1AZPM0122',\n    'US1AZPM0124', 'US1AZPM0125', 'US1AZPM0132', 'US1AZPM0135', 'US1AZPM0142', 'US1AZPM0143', 'US1AZPM0145',\n    'US1AZPM0146', 'US1AZPM0147', 'US1AZPM0148', 'US1AZPM0149', 'US1AZPM0156', 'US1AZPM0160', 'US1AZPM0173',\n    'US1AZPM0174', 'US1AZPM0181', 'US1AZPM0184', 'US1AZPM0193', 'US1AZPM0198', 'US1AZPM0199', 'US1AZPM0201',\n    'US1AZPM0202', 'US1AZPM0206', 'US1AZPM0208', 'US1AZPM0210', 'US1AZPM0214', 'US1AZPM0215', 'US1AZPM0218',\n    'US1AZPM0229', 'US1AZPM0233', 'US1AZPM0244', 'US1AZPM0245', 'US1AZPM0247', 'US1AZPM0248', 'US1AZPM0249',\n    'US1AZPM0254', 'US1AZPM0261', 'US1AZPM0263', 'US1AZPM0265', 'US1AZPM0268', 'US1AZPM0273', 'US1AZPM0292',\n    'US1AZPM0294', 'US1AZPM0301', 'US1AZPM0304', 'US1AZPM0306', 'US1AZPM0315', 'US1AZPM0321', 'US1AZPM0328',\n    'US1AZPM0336', 'US1AZPM0338', 'US1AZPM0339', 'US1AZPM0340', 'US1AZPM0355', 'US1AZPM0356', 'US1AZPM0362',\n    'US1AZPM0363', 'US1AZPM0366', 'US1AZPM0370', 'US1AZPM0371', 'US1AZPM0373', 'US1AZPM0374', 'US1AZPM0379',\n    'US1AZPM0384', 'US1AZPM0386', 'US1AZPM0391', 'US1AZPM0399', 'US1AZPM0405', 'US1AZPM0409', 'US1AZPM0411',\n    'US1AZPM0412', 'US1AZPM0415', 'US1AZPM0416', 'US1AZPM0422', 'US1AZPM0424', 'US1AZPM0426', 'US1AZPM0427',\n    'US1AZPM0433', 'US1AZPM0436', 'US1AZPM0441', 'US1AZPM0442', 'US1AZPM0443', 'US1AZPM0446', 'US1AZPM0449',\n    'US1AZPM0450', 'US1AZPM0460', 'US1AZPM0463', 'US1AZPM0470', 'USC00028795', 'USC00028796', 'USC00028799',\n    'USC00028800', 'USC00028810', 'USC00028815', 'USC00028817', 'USW00023160', 'USW00053131'\nParameters Included in Request:\n    'ACMH', 'ACSH', 'ADPT', 'ASLP', 'ASTP', 'AWBT', 'AWND', 'DAEV', 'DAPR', 'DAWM', 'EVAP', 'FMTM', 'FRGT',\n    'MDEV', 'MDPR', 'MDWM', 'MNPN', 'MXPN', 'PGTM', 'PRCP', 'PSUN', 'RHAV', 'RHMN', 'RHMX', 'SNOW', 'SNWD',\n    'TAVG', 'THIC', 'TMAX', 'TMIN', 'TOBS', 'TSUN', 'WDF1', 'WDF2', 'WDF5', 'WDFG', 'WDFM', 'WDMV', 'WESD',\n    'WESF', 'WSF1', 'WSF2', 'WSF5', 'WSFG', 'WSFM', 'WT01', 'WT02', 'WT03', 'WT04', 'WT05', 'WT06', 'WT07',\n    'WT08', 'WT09', 'WT10', 'WT11', 'WT13', 'WT14', 'WT16', 'WT18', 'WT19', 'WT21', 'WT22', 'WV03'\nTucson Historical Maximum and Minimum Temperature Differences From Average \n\n\nTucson Watersheds\nAnalysing Tucson’s Watersheds & Drainage Basin"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
