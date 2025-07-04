@@ -121,7 +121,7 @@ Using the flow accumulation, the watersheds for the Tucson area are then calcula
 
 [**Complete Drainage Basin**]{style="font-size: 18px;"}
 
-While the original intent was to visualize the watershed in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculation can be used again to capture the entire drainage basin for the drainage point using a smaller scale.
+While the original intent was to visualize the watersheds in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculations can be used again to capture the entire drainage basin for the drainage point and visualized using a smaller scale.
 
 ![](Portfolio/DrainageBasin.png){.lightbox fig-align="center"}
 
