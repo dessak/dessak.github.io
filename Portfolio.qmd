@@ -5,6 +5,64 @@ page-layout: full
 css: styles.css
 ---
 
+# Tucson Watersheds
+[**Analysing Tucson's Watersheds & Drainage Basin**]{style="font-size: 24px;"}
+
+This project was created to visualize the drainage features of the Tucson area. Of special interest are the contributing features to the drainage point in the Santa Cruz River northwest of the Tucson. Shuttle Radar Topography Mission (SRTM) information was obtained from the USGS Earth Explorer for this process. Four images were merged to cover the appropriate area.
+
+[**Elevation of Tucson Area**]{style="font-size: 18px;"}
+
+After SRTM rasters were merged, they were clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.
+
+![](Portfolio/SRTM_Map.png){.lightbox fig-align="center"}
+
+[**Flow Direction**]{style="font-size: 18px;"}
+
+After establishing a DEM, flow direction can be determined.
+
+![](Portfolio/FlowDirection.png){.lightbox fig-align="center"}
+
+[**Sinks**]{style="font-size: 18px;"}
+
+Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage featers.
+
+![](Portfolio/Sinks.png){.lightbox fig-align="center"}
+
+[**Flow Accumulation**]{style="font-size: 18px;"}
+
+Since the sinks are now filled, flow direction is redetermined and then used to calculate flow accumulation.
+![](Portfolio/FlowAcc.png){.lightbox fig-align="center"}
+
+[**Drainage Features**]{style="font-size: 18px;"}
+
+In a seperate process, using just the original DEM, drainage features can be determined. The Sthalar method was used for this step to determine drainage feature order. This allows for better visualization of the major drainage features than can be seen in the flow accumulation raster.
+
+![](Portfolio/DrainageFeatures.png){.lightbox fig-align="center"}
+
+[**Tucson Area Watersheds**]{style="font-size: 18px;"}
+
+Using the flow accumulation, the watersheds for the Tucson area are then calculated.
+
+![](Portfolio/Watersheds.png){.lightbox fig-align="center"}
+
+[**Complete Drainage Basin**]{style="font-size: 18px;"}
+
+While the original intent was to visualize the watersheds in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculations can be used again to capture the entire drainage basin for the drainage point and visualized using a smaller scale.
+
+![](Portfolio/DrainageBasin.png){.lightbox fig-align="center"}
+
+[**ArcGIS Pro Model**]{style="font-size: 18px;"}
+
+The below model represents the workflow without the separate process of determining drainage features.
+
+![](Portfolio/Model.png){.lightbox fig-align="center"}
+
+[**Sources**]{style="font-size: 18px;"}
+
+U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/
+
+Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com
+
 # ISTA498-Capstone
 
 [**Project Radiance: Group Capstone Project for the University of Arizona ISTA 498**]{style="font-size: 24px;"} <br>\
@@ -79,60 +137,3 @@ Request Endpoint Parameters:
 [**Tucson Historical Maximum and Minimum Temperature Differences From Average**]{style="font-size: 20px;"}
 ![](Portfolio/TucsonHistoricalTemps.png)
 
-# Tucson Watersheds
-[**Analysing Tucson's Watersheds & Drainage Basin**]{style="font-size: 24px;"}
-
-This project was created to visualize the drainage features of the Tucson area. Of special interest are the contributing features to the drainage point in the Santa Cruz River northwest of the Tucson. Shuttle Radar Topography Mission (SRTM) information was obtained from the USGS Earth Explorer for this process. Four images were merged to cover the appropriate area.
-
-[**Elevation of Tucson Area**]{style="font-size: 18px;"}
-
-After SRTM rasters were merged, they were clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.
-
-![](Portfolio/SRTM_Map.png){.lightbox fig-align="center"}
-
-[**Flow Direction**]{style="font-size: 18px;"}
-
-After establishing a DEM, flow direction can be determined.
-
-![](Portfolio/FlowDirection.png){.lightbox fig-align="center"}
-
-[**Sinks**]{style="font-size: 18px;"}
-
-Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage featers.
-
-![](Portfolio/Sinks.png){.lightbox fig-align="center"}
-
-[**Flow Accumulation**]{style="font-size: 18px;"}
-
-Since the sinks are now filled, flow direction is redetermined and then used to calculate flow accumulation.
-![](Portfolio/FlowAcc.png){.lightbox fig-align="center"}
-
-[**Drainage Features**]{style="font-size: 18px;"}
-
-In a seperate process, using just the original DEM, drainage features can be determined. The Sthalar method was used for this step to determine drainage feature order. This allows for better visualization of the major drainage features than can be seen in the flow accumulation raster.
-
-![](Portfolio/DrainageFeatures.png){.lightbox fig-align="center"}
-
-[**Tucson Area Watersheds**]{style="font-size: 18px;"}
-
-Using the flow accumulation, the watersheds for the Tucson area are then calculated.
-
-![](Portfolio/Watersheds.png){.lightbox fig-align="center"}
-
-[**Complete Drainage Basin**]{style="font-size: 18px;"}
-
-While the original intent was to visualize the watersheds in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculations can be used again to capture the entire drainage basin for the drainage point and visualized using a smaller scale.
-
-![](Portfolio/DrainageBasin.png){.lightbox fig-align="center"}
-
-[**ArcGIS Pro Model**]{style="font-size: 18px;"}
-
-The below model represents the workflow without the separate process of determining drainage features.
-
-![](Portfolio/Model.png){.lightbox fig-align="center"}
-
-[**Sources**]{style="font-size: 18px;"}
-
-U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/
-
-Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com

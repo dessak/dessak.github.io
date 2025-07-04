@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
         
       </div>
     </div>
-<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-ista498-capstone" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#ista498-capstone" data-scrolling="false" href="#ista498-capstone" aria-controls="ista498-capstone" aria-selected="true"><span class="nav-link-text">ISTA498-Capstone</span></a></li><li class="nav-item" role="presentation"><a id="tab-tucson-weather" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#tucson-weather" data-scrolling="false" href="#tucson-weather" aria-controls="tucson-weather" aria-selected="false"><span class="nav-link-text">Tucson Weather</span></a></li><li class="nav-item" role="presentation"><a id="tab-tucson-watersheds" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#tucson-watersheds" data-scrolling="false" href="#tucson-watersheds" aria-controls="tucson-watersheds" aria-selected="false"><span class="nav-link-text">Tucson Watersheds</span></a></li></ul></div></div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-tucson-watersheds" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#tucson-watersheds" data-scrolling="false" href="#tucson-watersheds" aria-controls="tucson-watersheds" aria-selected="true"><span class="nav-link-text">Tucson Watersheds</span></a></li><li class="nav-item" role="presentation"><a id="tab-ista498-capstone" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#ista498-capstone" data-scrolling="false" href="#ista498-capstone" aria-controls="ista498-capstone" aria-selected="false"><span class="nav-link-text">ISTA498-Capstone</span></a></li><li class="nav-item" role="presentation"><a id="tab-tucson-weather" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#tucson-weather" data-scrolling="false" href="#tucson-weather" aria-controls="tucson-weather" aria-selected="false"><span class="nav-link-text">Tucson Weather</span></a></li></ul></div></div>
 </nav>
 </header></header>
 <!-- content -->
@@ -142,7 +142,48 @@ ul.task-list li input[type="checkbox"] {
 <main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 <div class="tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div id="ista498-capstone" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-ista498-capstone">
+<div id="tucson-watersheds" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-tucson-watersheds">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<span style="font-size: 24px;"><strong>Analysing Tucson’s Watersheds &amp; Drainage Basin</strong></span>
+<p>This project was created to visualize the drainage features of the Tucson area. Of special interest are the contributing features to the drainage point in the Santa Cruz River northwest of the Tucson. Shuttle Radar Topography Mission (SRTM) information was obtained from the USGS Earth Explorer for this process. Four images were merged to cover the appropriate area.</p>
+<span style="font-size: 18px;"><strong>Elevation of Tucson Area</strong></span>
+<p>After SRTM rasters were merged, they were clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.</p>
+<a href="Portfolio/SRTM_Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="Portfolio/SRTM_Map.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Flow Direction</strong></span>
+<p>After establishing a DEM, flow direction can be determined.</p>
+<a href="Portfolio/FlowDirection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Portfolio/FlowDirection.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Sinks</strong></span>
+<p>Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage featers.</p>
+<a href="Portfolio/Sinks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Portfolio/Sinks.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Flow Accumulation</strong></span>
+<p>Since the sinks are now filled, flow direction is redetermined and then used to calculate flow accumulation. <a href="Portfolio/FlowAcc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Portfolio/FlowAcc.png" class="img-fluid quarto-figure quarto-figure-center"></a></p>
+<span style="font-size: 18px;"><strong>Drainage Features</strong></span>
+<p>In a seperate process, using just the original DEM, drainage features can be determined. The Sthalar method was used for this step to determine drainage feature order. This allows for better visualization of the major drainage features than can be seen in the flow accumulation raster.</p>
+<a href="Portfolio/DrainageFeatures.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="Portfolio/DrainageFeatures.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Tucson Area Watersheds</strong></span>
+<p>Using the flow accumulation, the watersheds for the Tucson area are then calculated.</p>
+<a href="Portfolio/Watersheds.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="Portfolio/Watersheds.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Complete Drainage Basin</strong></span>
+<p>While the original intent was to visualize the watersheds in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculations can be used again to capture the entire drainage basin for the drainage point and visualized using a smaller scale.</p>
+<a href="Portfolio/DrainageBasin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="Portfolio/DrainageBasin.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>ArcGIS Pro Model</strong></span>
+<p>The below model represents the workflow without the separate process of determining drainage features.</p>
+<a href="Portfolio/Model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Portfolio/Model.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Sources</strong></span>
+<p>U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/</p>
+<p>Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="ista498-capstone" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-ista498-capstone">
 <div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
 <div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
@@ -210,47 +251,6 @@ ul.task-list li input[type="checkbox"] {
     'WESF', 'WSF1', 'WSF2', 'WSF5', 'WSFG', 'WSFM', 'WT01', 'WT02', 'WT03', 'WT04', 'WT05', 'WT06', 'WT07',
     'WT08', 'WT09', 'WT10', 'WT11', 'WT13', 'WT14', 'WT16', 'WT18', 'WT19', 'WT21', 'WT22', 'WV03'</code></pre>
 <p><span style="font-size: 20px;"><strong>Tucson Historical Maximum and Minimum Temperature Differences From Average</strong></span> <img src="Portfolio/TucsonHistoricalTemps.png" class="img-fluid"></p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-</div>
-<div id="tucson-watersheds" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-tucson-watersheds">
-<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content); grid-auto-columns: minmax(0, 1fr);">
-<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<span style="font-size: 24px;"><strong>Analysing Tucson’s Watersheds &amp; Drainage Basin</strong></span>
-<p>This project was created to visualize the drainage features of the Tucson area. Of special interest are the contributing features to the drainage point in the Santa Cruz River northwest of the Tucson. Shuttle Radar Topography Mission (SRTM) information was obtained from the USGS Earth Explorer for this process. Four images were merged to cover the appropriate area.</p>
-<span style="font-size: 18px;"><strong>Elevation of Tucson Area</strong></span>
-<p>After SRTM rasters were merged, they were clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.</p>
-<a href="Portfolio/SRTM_Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="Portfolio/SRTM_Map.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<span style="font-size: 18px;"><strong>Flow Direction</strong></span>
-<p>After establishing a DEM, flow direction can be determined.</p>
-<a href="Portfolio/FlowDirection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Portfolio/FlowDirection.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<span style="font-size: 18px;"><strong>Sinks</strong></span>
-<p>Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage featers.</p>
-<a href="Portfolio/Sinks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Portfolio/Sinks.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<span style="font-size: 18px;"><strong>Flow Accumulation</strong></span>
-<p>Since the sinks are now filled, flow direction is redetermined and then used to calculate flow accumulation. <a href="Portfolio/FlowAcc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Portfolio/FlowAcc.png" class="img-fluid quarto-figure quarto-figure-center"></a></p>
-<span style="font-size: 18px;"><strong>Drainage Features</strong></span>
-<p>In a seperate process, using just the original DEM, drainage features can be determined. The Sthalar method was used for this step to determine drainage feature order. This allows for better visualization of the major drainage features than can be seen in the flow accumulation raster.</p>
-<a href="Portfolio/DrainageFeatures.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="Portfolio/DrainageFeatures.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<span style="font-size: 18px;"><strong>Tucson Area Watersheds</strong></span>
-<p>Using the flow accumulation, the watersheds for the Tucson area are then calculated.</p>
-<a href="Portfolio/Watersheds.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="Portfolio/Watersheds.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<span style="font-size: 18px;"><strong>Complete Drainage Basin</strong></span>
-<p>While the original intent was to visualize the watersheds in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculations can be used again to capture the entire drainage basin for the drainage point and visualized using a smaller scale.</p>
-<a href="Portfolio/DrainageBasin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="Portfolio/DrainageBasin.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<span style="font-size: 18px;"><strong>ArcGIS Pro Model</strong></span>
-<p>The below model represents the workflow without the separate process of determining drainage features.</p>
-<a href="Portfolio/Model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Portfolio/Model.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<span style="font-size: 18px;"><strong>Sources</strong></span>
-<p>U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/</p>
-<p>Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com</p>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
     <template>Expand</template>
