@@ -8,11 +8,11 @@ css: styles.css
 # Tucson Watersheds
 [**Analysing Tucson's Watersheds & Drainage Basin**]{style="font-size: 24px;"}
 
-This project was created to visualize the drainage features of the Tucson area. Of special interest are the contributing features to the drainage point in the Santa Cruz River northwest of the Tucson. Shuttle Radar Topography Mission (SRTM) information was obtained from the USGS Earth Explorer for this process. Four images were merged to cover the appropriate area.
+This project was created to visualize the drainage features of the Tucson area. Of special interest are the contributing features to the drainage point in the Santa Cruz River northwest of Tucson. Shuttle Radar Topography Mission (SRTM) information was obtained from the USGS Earth Explorer for this process. Four images were merged to cover the appropriate area.
 
 [**Elevation of Tucson Area**]{style="font-size: 18px;"}
 
-After SRTM rasters were merged, they were clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.
+After SRTM rasters were merged, they were projected to the Arizona State Plane Coordinate System and clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.
 
 ![](Portfolio/SRTM_Map.png){.lightbox fig-align="center"}
 
@@ -24,7 +24,7 @@ After establishing a DEM, flow direction can be determined.
 
 [**Sinks**]{style="font-size: 18px;"}
 
-Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage featers.
+Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage features.
 
 ![](Portfolio/Sinks.png){.lightbox fig-align="center"}
 
@@ -41,7 +41,7 @@ In a seperate process, using just the original DEM, drainage features can be det
 
 [**Tucson Area Watersheds**]{style="font-size: 18px;"}
 
-Using the flow accumulation, the watersheds for the Tucson area are then calculated.
+Using a calculation that extracts streams and larger drainage feature that have at least 125,000 cells of accumulated flow along with using the flow accumulation, the watersheds for the Tucson area are then calculated.
 
 ![](Portfolio/Watersheds.png){.lightbox fig-align="center"}
 
@@ -53,7 +53,7 @@ While the original intent was to visualize the watersheds in the Tucson area, th
 
 [**ArcGIS Pro Model**]{style="font-size: 18px;"}
 
-The below model represents the workflow without the separate process of determining drainage features.
+The below model represents the workflow used to create the above maps.
 
 ![](Portfolio/Model.png){.lightbox fig-align="center"}
 
