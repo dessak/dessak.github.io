@@ -224,9 +224,33 @@ ul.task-list li input[type="checkbox"] {
 <div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
 <span style="font-size: 24px;"><strong>Analysing Tucson’s Watersheds &amp; Drainage Basin</strong></span>
-<p>Testing adding images</p>
+<p>This project was created to visualize the drainage features of the Tucson area. Of special interest are the contributing features to the drainage point in the Santa Cruz River northwest of the Tucson. Shuttle Radar Topography Mission (SRTM) information was obtained from the USGS Earth Explorer for this process. Four images were merged to cover the appropriate area.</p>
+<span style="font-size: 18px;"><strong>Elevation of Tucson Area</strong></span>
+<p>After SRTM rasters were merged, they were clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.</p>
 <a href="Portfolio/SRTM_Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="Portfolio/SRTM_Map.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<p><a href="Portfolio/FlowDirection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Portfolio/FlowDirection.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/Sinks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Portfolio/Sinks.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/FlowAcc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Portfolio/FlowAcc.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/DrainageFeatures.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="Portfolio/DrainageFeatures.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/Watersheds.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="Portfolio/Watersheds.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/DrainageBasin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="Portfolio/DrainageBasin.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/Model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Portfolio/Model.png" class="img-fluid quarto-figure quarto-figure-center"></a></p>
+<span style="font-size: 18px;"><strong>Flow Direction</strong></span>
+<p>After establishing a DEM, flow direction can be determined.</p>
+<a href="Portfolio/FlowDirection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Portfolio/FlowDirection.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Sinks</strong></span>
+<p>Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage featers.</p>
+<a href="Portfolio/Sinks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Portfolio/Sinks.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Flow Accumulation</strong></span>
+<p>Since the sinks are now filled, flow direction is redetermined and then used to calculate flow accumulation. <a href="Portfolio/FlowAcc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Portfolio/FlowAcc.png" class="img-fluid quarto-figure quarto-figure-center"></a></p>
+<span style="font-size: 18px;"><strong>Drainage Features</strong></span>
+<p>In a seperate process, using just the original DEM, drainage features can be determined. The Sthalar method was used for this step to determine drainage feature order. This allows for better visualization of the major drainage features than can be seen in the flow accumulation raster.</p>
+<a href="Portfolio/DrainageFeatures.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="Portfolio/DrainageFeatures.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Tucson Area Watersheds</strong></span>
+<p>Using the flow accumulation, the watersheds for the Tucson area are then calculated.</p>
+<a href="Portfolio/Watersheds.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="Portfolio/Watersheds.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Complete Drainage Basin</strong></span>
+<p>While the original intent was to visualize the watershed in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculation can be used again to capture the entire drainage basin for the drainage point using a smaller scale.</p>
+<a href="Portfolio/DrainageBasin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="Portfolio/DrainageBasin.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>ArcGIS Pro Model</strong></span>
+<p>The below model represents the workflow without the separate process of determining drainage features.</p>
+<a href="Portfolio/Model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Portfolio/Model.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<span style="font-size: 18px;"><strong>Sources</strong></span>
+<p>U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/</p>
+<p>Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com</p>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
     <template>Expand</template>
