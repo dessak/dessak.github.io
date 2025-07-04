@@ -82,6 +82,8 @@ Request Endpoint Parameters:
 # Tucson Watersheds
 [**Analysing Tucson's Watersheds & Drainage Basin**]{style="font-size: 24px;"}
 
+Testing adding images
+
 ![](Portfolio/SRTM_Map.png){.lightbox fig-align="center"}
 
 
