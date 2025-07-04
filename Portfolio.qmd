@@ -81,3 +81,14 @@ Request Endpoint Parameters:
 
 # Tucson Watersheds
 [**Analysing Tucson's Watersheds & Drainage Basin**]{style="font-size: 24px;"}
+
+![](Portfolio/SRTM_Map.png){.lightbox fig-align="center"}
+
+
+![](Portfolio/FlowDirection.png){.lightbox fig-align="center"}
+![](Portfolio/Sinks.png){.lightbox fig-align="center"}
+![](Portfolio/FlowAcc.png){.lightbox fig-align="center"}
+![](Portfolio/DrainageFeatures.png){.lightbox fig-align="center"}
+![](Portfolio/Watersheds.png){.lightbox fig-align="center"}
+![](Portfolio/DrainageBasin.png){.lightbox fig-align="center"}
+![](Portfolio/Model.png){.lightbox fig-align="center"}

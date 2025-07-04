@@ -47,6 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-dashboard/web-components.js" type="module"></script>
 <script src="site_libs/quarto-dashboard/components.js"></script>
 <link href="site_libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -221,6 +224,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
 <span style="font-size: 24px;"><strong>Analysing Tucson’s Watersheds &amp; Drainage Basin</strong></span>
+<a href="Portfolio/SRTM_Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="Portfolio/SRTM_Map.png" class="center img-fluid"></a>
+<p><a href="Portfolio/FlowDirection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="Portfolio/FlowDirection.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/Sinks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="Portfolio/Sinks.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/FlowAcc.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="Portfolio/FlowAcc.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/DrainageFeatures.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="Portfolio/DrainageFeatures.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/Watersheds.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="Portfolio/Watersheds.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/DrainageBasin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="Portfolio/DrainageBasin.png" class="img-fluid quarto-figure quarto-figure-center"></a> <a href="Portfolio/Model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Portfolio/Model.png" class="img-fluid quarto-figure quarto-figure-center"></a></p>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
     <template>Expand</template>
@@ -656,6 +661,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (_event) {
