@@ -86,6 +86,7 @@ Include any references or literature that you may cite while working on this ana
 <h2 style="margin-top:1em;">San Francisco Street Network Analysis</h2>
 ```
 
+  
 
 ```{=html}
 <h3 style="margin-top:1em;">Problem Statement</h3>
@@ -111,10 +112,14 @@ Emergency responders have to contend with many issues when organizing their resp
 
 The study area for this analysis is the limits of the City and County of San Francisco. San Francisco lies on the northernmost tip 
 of the San Francisco Peninsula located on the Northern California coast.
+
   
+
 The street network feature dataset is from ESRI's ["Optimizing Routes for Efficient Fleet Management"](https://www.esri.com/training/catalog/5a1da3e0e79aee27e8839e8b/optimizing-routes-for-efficient-fleet-management/) tutorial. The ["City Facilities - Fire Department Jurisdiction or Leased"](https://data.sfgov.org/City-Infrastructure/City-Facilities-Fire-Department-Jurisdiction-or-Le/mt4k-j2ju/about_data) table was downloaded from the DataSF | Open Data Portal and then geocoded into a point feature dataset. This feature includes both fire stations as well as other supporting facilities. In addition, the ["Temporary Street Closures Map"](https://data.sfgov.org/Transportation/Temporary-Street-Closures-Map/98cv-qtqk) was exported from DataSF for street closures on 7/27/25.
+
   
-![Figure 1](Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png){.lightbox fig-align="center"}
+
+![Figure 1](Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png){.lightbox}
 
   
 
@@ -125,6 +130,7 @@ The street network feature dataset is from ESRI's ["Optimizing Routes for Effici
   
 
 Network analysis requires accurate measures of distance in multiple directions. This would best be accomplished with a conformal projection. This analysis uses the California Zone III State Plane (FIPS 0403) in meters which is a Lambert conformal conic projection. This is where the City and County of San Francisco is located. It uses the most recent update (2011) to the 1983 North American Datum.
+
   
 
 [**Method #1: Service Areas**]{style="font-size: 18px;"}
@@ -191,12 +197,16 @@ No traffic was included in any of these analyses. This was due to the limited av
 <h3 style="margin-top:1em;">Results</h3>
 ```
 
+  
+
 [**Service Areas**]{style="font-size: 18px;"}
 
   
 
 The outcome shows the result of the analysis with the different colored polygons representing areas reached within 1 minute (purple), 2 minutes (green), and 3 minutes (yellow) While most of the limited access is located in the northern half of the city, most areas in the northern half are still within 2 minute service areas. The southern half of the city has significantly more area within the 3 minute service mark including some areas beyond 3 minutes despite having significantly less closures. Upon closer inspection it can be seen that the geography necessitates more dispersed roads that are more likely to wind around hills in addition to the stations being more spatially dispersed.
+
   
+
 ![](Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasMap.png){.lightbox fig-align="center"}
 
   
@@ -208,6 +218,7 @@ The outcome shows the result of the analysis with the different colored polygons
 As a result of the San Francisco Marathon, Station #35 is blocked and will be unreachable on that date. It is therefore not included in the route and will need to be inspected on a different occasion. The remaining ten stations only have to contend with a few minor lengths of limited access. If the chief wants to be able to reach all stations for this round of site inspections, they will have to do so on another date.
   
 ![](Portfolio/VectorAnalysis/NetworkAnalysis/BestRouteMap.png){.lightbox fig-align="center"}
+
   
 
 [**Optimal Location**]{style="font-size: 18px;"}
@@ -215,8 +226,11 @@ As a result of the San Francisco Marathon, Station #35 is blocked and will be un
   
 
 With this optimal location analysis, the newly sited equipment facility becomes the main location servicing the majority of stations. The old facility becomes the closest facility to only 5 stations. A more equal distribution is unfortunately limited by zoning which limited where the candidate sites could be located. There are some stations in the south that appear to be spatially closer to the old facility but the network analysis determined that the new facility would be closer as a function of time. This is most likely due to the selected candidate site's location near a highway.
+
   
+
 ![](Portfolio/VectorAnalysis/NetworkAnalysis/OptimalLocationMap.png){.lightbox fig-align="center"}
+
   
 
 ```{=html}
@@ -325,6 +339,7 @@ The Boolean analysis shows several areas throughout the city that would be suita
   
 
 ![](Portfolio/VectorAnalysis/SuitabilityAnalysis/BooleanMap.png){.lightbox fig-align="center"}
+
   
 
 [**Ranked Suitability Analysis**]{style="font-size: 18px;"}
@@ -336,6 +351,7 @@ This analysis identified very little area as "Highly Suitable" and most of it wa
   
 
 ![](Portfolio/VectorAnalysis/SuitabilityAnalysis/RankedMap.png){.lightbox fig-align="center"}
+
   
 
 ```{=html}
@@ -390,11 +406,14 @@ Robbins, Natalie. “Tucson Needs 35k Housing Units to Meet Demand; Officials Ho
 <h2 style="margin-top:1em;">Determining Spatial Randomness of Plant Samples</h2>
 ```
 
+  
+
 ```{=html}
 <h3 style="margin-top:1em;">Problelm Statement</h3>
 ```
 
   
+
 The California Vegetation Classification and Mapping Program (VegCAMP) seeks to establish a map of California's vegetation at a high resolution. VegCAMP does not have a standard for sample site allocation. Sampling sites are a combination of sites allocated ahead of time and sites of opportunity. For allocating sample sites, it has employed Generalized Random Tessellation Stratified (GTRS) survey design and a gradient-directed transect (gradsect) approach. The Generalized Random Tesselation Stratified survey design aims to spatially balance sample sites. (VegCAMP Background)
 
   
@@ -414,6 +433,8 @@ While complete spatial randomness is not required for spatially balanced samplin
 
 This study area is a roughly 30 square kilometer, rectangular area, that encompasses Mount Tamalpais, a portion of Mount Tamalpais state park, as well as most of Muir Woods National Monument. These features utilized are located on the northern peninsula of the San Francisco Bay in Northern California which is located across the Golden Gate Strait from the City and County of San Francisco. It is a point feature class with attribute information regarding the plants sampled and various other information such as methodolgoies used. The only attribute used for this analysis is location. The point feature was clipped to the study area.
 
+  
+
 The dataset used for this analysis is the [Vegetation Survey Points - CDFW \[ds1020\]](https://gis.data.ca.gov/maps/b3e92f99881b4b03bab0ef8d74c229e9/about) downloaded from the State of California's State Geoportal. This dataset is published by the California Department of Fish and Wildlife. It is a point feature class.
 
   
@@ -428,7 +449,7 @@ The dataset used for this analysis is the [Vegetation Survey Points - CDFW \[ds1
 
   
 
-These analyses use a Natural Earth projection which is a compromise pseudocylindrical projection. This was done to quickly and easily mimic a Cartesian plane with no need for tweaking parameters. However, because this is a compromise pseudocylindrical projection, distances are distorted. A conformal projection with parameters tweaked to mimic a Cartesian plane would be ideal.
+These analyses use a Natural Earth projection which is a compromised of a pseudocylindrical projection. This was done to quickly and easily mimic a Cartesian plane with no need for tweaking parameters. However, because this is a compromise pseudocylindrical projection, distances are distorted. A conformal projection with parameters tweaked to mimic a Cartesian plane would be ideal.
 
   
 
@@ -443,7 +464,8 @@ Left	-11,061,612.331300m
 Right	-11,056,112.395900m
 
   
-This extent was chosen because it was an area with a moderate apparent density of points and did not include spatial intteruptions like bodies of water or developed land that might affect the outcomes. To make the quadrat count as simple as possible, a square study area was used.
+
+This extent was chosen because it was an area with a moderate apparent density of points and did not include spatial interruptions like bodies of water or developed land that might affect the outcomes. To make the quadrat count as simple as possible, a square study area was used.
 
   
 [**Quadrat Count**]{style="font-size: 18px;"}
@@ -482,37 +504,34 @@ The study area was divided into 10 rows and 10 columns. This created 100 square 
 <h3 style="margin-top:1em;">Results</h3>
 ```
 
+  
+
 [**Quadrat Count**]{style="font-size: 18px;"}
 
   
 
-While the sampling points may seem fairly well distributed visually, when summing the points in each quadrat, 40% of them do not have a single point in them about about 20% only have one point in them (Figure 1). After performing the calculations for the Variance Mean Ratio, a VMR of ~2.8 was returned. This is larger than 1 which means the points are clustered (Figure 2).
+While the sampling points may seem fairly well distributed visually, when summing the points in each quadrat, 40% of them do not have a single point in them and about 20% only have one point in them (Figure 1). After performing the calculations for the Variance Mean Ratio, a VMR of ~2.8 was returned. This is larger than 1 which means the points are clustered (Figure 2).
+
+  
 
 ![Figure 1](Portfolio/VectorAnalysis/PointPattern/quadratsfrequenciestable.png){.lightbox fig-align="center"}
 
   
 
-![](Portfolio/VectorAnalysis/PointPattern/quadratstable.png){.lightbox fig-align="center"}
+![Figure 2](Portfolio/VectorAnalysis/PointPattern/quadratstable.png){.lightbox fig-align="center"}
 
   
 
-        Include the table from the instructions to show your calculations.
-        Describe your results in 1 paragraph (<100 words).
-
-  
 
 [**Average Nearest Neighbor**]{style="font-size: 18px;"}
 
   
 
-The average nearest neighbor returned a z-value of ~-9.1. This value implies the points are highly clustered. The analysis also returns a p-value of ~0.0 which implies the result is highly statistically significant. With both of these values, the null hypothesis can be rejected.
+The average nearest neighbor returned a z-value of ~-9.1. This value implies the points are highly clustered. The analysis also returns a p-value of ~0.0 which implies the result is highly statistically significant (Figure 3). With both of these values, the null hypothesis can be rejected.
 
+  
 
-![](Portfolio/VectorAnalysis/PointPattern/ANNSummary.png){.lightbox fig-align="center"}
-
-    Average Nearest Neighbor
-        Include a screenshot of the HTML report.
-        Describe your results in 1 paragraph (<100 words).
+![Figure 3](Portfolio/VectorAnalysis/PointPattern/ANNSummary.png){.lightbox fig-align="center"}
 
   
 
@@ -520,14 +539,12 @@ The average nearest neighbor returned a z-value of ~-9.1. This value implies the
 
   
 
-Over the 10 distance bands of 2 meter increments, the observed K value was well above the
+Over the 10 distance bands of 300 meter increments, the observed K value were consistently above the upper confidence envelope. However, both the Observed K values and the Upper confidence envelope values drop below the Expected K (Figure 4). This is likely a result of edge effects since no edge correction was used and the larger distance values extend well beyond the edge of the study area when conducting the analysis.
 
 
-![](Portfolio/VectorAnalysis/PointPattern/KFunction.png){.lightbox fig-align="center"}
+![Figure 4](Portfolio/VectorAnalysis/PointPattern/KFunction.png){.lightbox fig-align="center"}
 
-
-        Include the chart that shows the ObservedK and the Confidence Envelopes.
-        Describe your results in 1 paragraph (<100 words).
+  
 
 ```{=html}
 <h3 style="margin-top:1em;">Conclusions</h3>
@@ -535,10 +552,14 @@ Over the 10 distance bands of 2 meter increments, the observed K value was well 
 
   
 
+While trying to spatially balance sampling sites is not the same as having a randomly distributed set of sample sites, the fact that all three analyses indicate there is significant clustering and the null hypothesis has been rejected means that the sites are not actually spatially balanced either. There may not have been any intent to spatially balance the sampling sites or there were enough "sites of opportunity" that were not allocated in a spatially balanced plan that the result is these sites are significantly clustered.
 
+In this analysis, the ANN was the only method where a test for significance was applied but the result was extremely statistically significant clustering. The Ripley
+'s K had odd behavior with the Upper confidence limit dropping below the expected values which adds some doubt to the results of that method but combined with the other two, the Null Hypothesis has been thoroughly rejected.
 
-    Draw conclusions from your analysis as it relates to answering your questions and by comparing the results from all three methods. What does each method reveal about the patterns in your data. Do the methodologies agree with each other? Explain why or why not? (2 - 3 paragraphs, <500 words)
-    Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, <200 words)
+The limitations of these analysis are that they are very shape dependent. The density values can only correctly be calculated if the shapes are homogeneous in shape and area. Meanwhile the distance based methods have edge-effect issues that vary with the shape of the study area. As mentioned above, the Ripley's K was not calculated with edge correction, but even the edge correction is an interpolation that is not strictly representative of the data within the study area.
+
+  
 
 ```{=html}
 <h3 style="margin-top:1em;">References</h3>
@@ -554,6 +575,10 @@ Include any references or literature that you may cite while working on this ana
 “Multi-Distance Spatial Cluster Analysis (Ripley’s K Function) (Spatial Statistics)—ArcGIS pro | Documentation.” Pro.arcgis.com, pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-statistics/multi-distance-spatial-cluster-analysis.htm. Accessed 8 Aug. 2025.
   
 “VegCAMP Background.” Wildlife.ca.gov, wildlife.ca.gov/Data/VegCAMP/Background. Accessed 8 Aug. 2025.
+  
+“Vegetation Survey Points - CDFW [Ds1020].” Ca.gov, 2020, gis.data.ca.gov/maps/b3e92f99881b4b03bab0ef8d74c229e9/about. Accessed 8 Aug. 2025.
+
+  
 
 ```{=html}
 <h2 style="margin-top:1em;">Street Tree Canopy Equity in Portland Oregon</h2>
@@ -563,12 +588,11 @@ Include any references or literature that you may cite while working on this ana
 <h3 style="margin-top:1em;">Problem Statement</h3>
 ```
 
+  
+
 Despite it's recent disappearance from government websites such as EPA.gov, the issue of tree canopy disparity has been well established by numerous studies such as (McDonald, et. al 2021). As quantified in that study, there is often significantly less tree canopy coverage in low income areas versus their wealthier counterparts. There are also disparities between those neighborhoods primarily comprised of ethnic minorities and those of predominantly white residents. This in turn has an impact on the health of residents as well as intensifying the heat island effect in areas with low tree canopy. This analyses seeks to determine if the tree canopy coverage in the City of Portland, Oregon is equitably distributed.
 
   
-
-    Describe your problem in 2 - 3 sentences.
-    Define the question that you seek to answer using regression analysis in 1 sentence.
 
 ```{=html}
 <h3 style="margin-top:1em;">Data</h3>
@@ -653,7 +677,22 @@ The exploratory regression analysis iterates though all possible combinations of
 ```{=html}
 <h3 style="margin-top:1em;">References</h3>
 ```
-Include any references or literature that you may cite while working on this analysis.
+
+  
+
+“City Boundaries.” Arcgis.com, 4 Aug. 2025, gis-pdx.opendata.arcgis.com/datasets/PDX::city-boundaries/about. Accessed 15 Aug. 2025.
+  
+McDonald, Robert I., et al. “The Tree Cover and Temperature Disparity in US Urbanized Areas: Quantifying the Association with Income across 5,723 Communities.” PLOS One, vol. 16, no. 4, 28 Apr. 2021, https://doi.org/10.1371/journal.pone.0249715.
+  
+“Median Household Incoe 2025 - Esri Demographics.” Arcgis.com, 23 July 2025, www.arcgis.com/home/item.html?id=04b1d8c01fdd4920b52dc227dc42f186. Accessed 15 Aug. 2025.
+  
+“Street Tree Inventory - Active Records.” Arcgis.com, 23 Jan. 2025, gis-pdx.opendata.arcgis.com/datasets/PDX::street-tree-inventory-active-records/about. Accessed 15 Aug. 2025.
+  
+“USA 2020 Census Population Characteristics.” Arcgis.com, 9 July 2025, www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6. Accessed 15 Aug. 2025.
+  
+“USA Esri Demographics (Latest).” Arcgis.com, 2025, www.arcgis.com/home/item.html?id=8f6b71915a144f60a3a6ca72b57cdb56. Accessed 15 Aug. 2025.
+  
+
 :::
 # Tucson Drainage Basin
 

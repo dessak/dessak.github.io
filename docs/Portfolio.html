@@ -207,11 +207,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>The street network feature dataset is from ESRI’s <a href="https://www.esri.com/training/catalog/5a1da3e0e79aee27e8839e8b/optimizing-routes-for-efficient-fleet-management/">“Optimizing Routes for Efficient Fleet Management”</a> tutorial. The <a href="https://data.sfgov.org/City-Infrastructure/City-Facilities-Fire-Department-Jurisdiction-or-Le/mt4k-j2ju/about_data">“City Facilities - Fire Department Jurisdiction or Leased”</a> table was downloaded from the DataSF | Open Data Portal and then geocoded into a point feature dataset. This feature includes both fire stations as well as other supporting facilities. In addition, the <a href="https://data.sfgov.org/Transportation/Temporary-Street-Closures-Map/98cv-qtqk">“Temporary Street Closures Map”</a> was exported from DataSF for street closures on 7/27/25.</p>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
-<figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 1"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
-</figure>
-</div>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 1"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="img-fluid figure-img" alt="Figure 1"></a></p>
 <figcaption>Figure 1</figcaption>
 </figure>
 </div>
@@ -351,10 +347,10 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>The dataset used for this analysis is the <a href="https://gis.data.ca.gov/maps/b3e92f99881b4b03bab0ef8d74c229e9/about">Vegetation Survey Points - CDFW [ds1020]</a> downloaded from the State of California’s State Geoportal. This dataset is published by the California Department of Fish and Wildlife. It is a point feature class.</p>
 <a href="Portfolio/VectorAnalysis/PointPattern/StudyArea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="Portfolio/VectorAnalysis/PointPattern/StudyArea.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Methods</h3>
-<p>These analyses use a Natural Earth projection which is a compromise pseudocylindrical projection. This was done to quickly and easily mimic a Cartesian plane with no need for tweaking parameters. However, because this is a compromise pseudocylindrical projection, distances are distorted. A conformal projection with parameters tweaked to mimic a Cartesian plane would be ideal.</p>
+<p>These analyses use a Natural Earth projection which is a compromised of a pseudocylindrical projection. This was done to quickly and easily mimic a Cartesian plane with no need for tweaking parameters. However, because this is a compromise pseudocylindrical projection, distances are distorted. A conformal projection with parameters tweaked to mimic a Cartesian plane would be ideal.</p>
 <p>There are 168 total sample points within the study area. Each point represents an area of varying sizes where the alliance-level foliage was cataloged. There are also additional attributes describing various aspects like land ownership, soil types, and sampling method employed. (VegCAMP Background)</p>
 <p>Extent Top: 4,270,318.040700m Bottom 4,264,818.105300m Left -11,061,612.331300m Right -11,056,112.395900m</p>
-<p>This extent was chosen because it was an area with a moderate apparent density of points and did not include spatial intteruptions like bodies of water or developed land that might affect the outcomes. To make the quadrat count as simple as possible, a square study area was used.</p>
+<p>This extent was chosen because it was an area with a moderate apparent density of points and did not include spatial interruptions like bodies of water or developed land that might affect the outcomes. To make the quadrat count as simple as possible, a square study area was used.</p>
 <span style="font-size: 18px;"><strong>Quadrat Count</strong></span>
 <p>The quadrat count method is a density-based measure. This method divides the study area into a gird and then counts the number of points in each quadrat. The Variance-Mean Ratio (VMR) is then calculated. If a VMR is near 1, then the points are spatially random. As the VMR becomes increasingly less than 1, it is tending more towards being dispersed. As the VMR becomes increasingly larger than 1, the points are increasingly tending towards clustering.</p>
 <span style="font-size: 18px;"><strong>Average Nearest Neighbor</strong></span>
@@ -365,7 +361,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>The study area was divided into 10 rows and 10 columns. This created 100 square quadrats of equal size comprised of 0.3 square kilometers each. Establishing quadrats of equal size was important to avoid bias from varying sizes having more or less opportunity to contain points. For the distance-based methods, it is assumed that the nearest neighbor lies within the study-area. This is the result of establishing a study area as not all points can be included. The Ripley’s K tool was set to do 999 permutations —to establish reliable confidence intervals— of 10 bands with 300 m increments in an attempt to achieve approximately a maximum distance of about 10% the length of the study area.</p>
 <h3 style="margin-top:1em;" class="anchored">Results</h3>
 <span style="font-size: 18px;"><strong>Quadrat Count</strong></span>
-<p>While the sampling points may seem fairly well distributed visually, when summing the points in each quadrat, 40% of them do not have a single point in them about about 20% only have one point in them (Figure 1). After performing the calculations for the Variance Mean Ratio, a VMR of ~2.8 was returned. This is larger than 1 which means the points are clustered (Figure 2).</p>
+<p>While the sampling points may seem fairly well distributed visually, when summing the points in each quadrat, 40% of them do not have a single point in them and about 20% only have one point in them (Figure 1). After performing the calculations for the Variance Mean Ratio, a VMR of ~2.8 was returned. This is larger than 1 which means the points are clustered (Figure 2).</p>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
@@ -376,23 +372,44 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figcaption>Figure 1</figcaption>
 </figure>
 </div>
-<a href="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<pre><code>    Include the table from the instructions to show your calculations.
-    Describe your results in 1 paragraph (&lt;100 words).</code></pre>
+<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="figure">
+<p><a href="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure 2"><img src="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 2"></a></p>
+</figure>
+</div>
+<figcaption>Figure 2</figcaption>
+</figure>
+</div>
 <span style="font-size: 18px;"><strong>Average Nearest Neighbor</strong></span>
-<p>The average nearest neighbor returned a z-value of ~-9.1. This value implies the points are highly clustered. The analysis also returns a p-value of ~0.0 which implies the result is highly statistically significant. With both of these values, the null hypothesis can be rejected.</p>
-<a href="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<pre><code>Average Nearest Neighbor
-    Include a screenshot of the HTML report.
-    Describe your results in 1 paragraph (&lt;100 words).</code></pre>
+<p>The average nearest neighbor returned a z-value of ~-9.1. This value implies the points are highly clustered. The analysis also returns a p-value of ~0.0 which implies the result is highly statistically significant (Figure 3). With both of these values, the null hypothesis can be rejected.</p>
+<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="figure">
+<p><a href="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure 3"><img src="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 3"></a></p>
+</figure>
+</div>
+<figcaption>Figure 3</figcaption>
+</figure>
+</div>
 <span style="font-size: 18px;"><strong>Ripley’s K</strong></span>
-<p>Over the 10 distance bands of 2 meter increments, the observed K value was well above the</p>
-<a href="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="img-fluid quarto-figure quarto-figure-center"></a>
-<pre><code>    Include the chart that shows the ObservedK and the Confidence Envelopes.
-    Describe your results in 1 paragraph (&lt;100 words).</code></pre>
+<p>Over the 10 distance bands of 300 meter increments, the observed K value were consistently above the upper confidence envelope. However, both the Observed K values and the Upper confidence envelope values drop below the Expected K (Figure 4). This is likely a result of edge effects since no edge correction was used and the larger distance values extend well beyond the edge of the study area when conducting the analysis.</p>
+<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
+<figure class="figure">
+<p><a href="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure 4"><img src="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 4"></a></p>
+</figure>
+</div>
+<figcaption>Figure 4</figcaption>
+</figure>
+</div>
 <h3 style="margin-top:1em;" class="anchored">Conclusions</h3>
-<pre><code>Draw conclusions from your analysis as it relates to answering your questions and by comparing the results from all three methods. What does each method reveal about the patterns in your data. Do the methodologies agree with each other? Explain why or why not? (2 - 3 paragraphs, &lt;500 words)
-Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, &lt;200 words)</code></pre>
+<p>While trying to spatially balance sampling sites is not the same as having a randomly distributed set of sample sites, the fact that all three analyses indicate there is significant clustering and the null hypothesis has been rejected means that the sites are not actually spatially balanced either. There may not have been any intent to spatially balance the sampling sites or there were enough “sites of opportunity” that were not allocated in a spatially balanced plan that the result is these sites are significantly clustered.</p>
+<p>In this analysis, the ANN was the only method where a test for significance was applied but the result was extremely statistically significant clustering. The Ripley ’s K had odd behavior with the Upper confidence limit dropping below the expected values which adds some doubt to the results of that method but combined with the other two, the Null Hypothesis has been thoroughly rejected.</p>
+<p>The limitations of these analysis are that they are very shape dependent. The density values can only correctly be calculated if the shapes are homogeneous in shape and area. Meanwhile the distance based methods have edge-effect issues that vary with the shape of the study area. As mentioned above, the Ripley’s K was not calculated with edge correction, but even the edge correction is an interpolation that is not strictly representative of the data within the study area.</p>
 <h3 style="margin-top:1em;" class="anchored">References</h3>
 <p>Include any references or literature that you may cite while working on this analysis.</p>
 </div>
@@ -400,11 +417,10 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>“How Average Nearest Neighbor Works—ArcGIS pro | Documentation.” Pro.arcgis.com, pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-statistics/h-how-average-nearest-neighbor-distance-spatial-st.htm. Accessed 8 Aug.&nbsp;2025.</p>
 <p>“Multi-Distance Spatial Cluster Analysis (Ripley’s K Function) (Spatial Statistics)—ArcGIS pro | Documentation.” Pro.arcgis.com, pro.arcgis.com/en/pro-app/latest/tool-reference/spatial-statistics/multi-distance-spatial-cluster-analysis.htm. Accessed 8 Aug.&nbsp;2025.</p>
 <p>“VegCAMP Background.” Wildlife.ca.gov, wildlife.ca.gov/Data/VegCAMP/Background. Accessed 8 Aug.&nbsp;2025.</p>
+<p>“Vegetation Survey Points - CDFW [Ds1020].” Ca.gov, 2020, gis.data.ca.gov/maps/b3e92f99881b4b03bab0ef8d74c229e9/about. Accessed 8 Aug.&nbsp;2025.</p>
 <h2 style="margin-top:1em;" class="anchored">Street Tree Canopy Equity in Portland Oregon</h2>
 <h3 style="margin-top:1em;" class="anchored">Problem Statement</h3>
 <p>Despite it’s recent disappearance from government websites such as EPA.gov, the issue of tree canopy disparity has been well established by numerous studies such as (McDonald, et. al 2021). As quantified in that study, there is often significantly less tree canopy coverage in low income areas versus their wealthier counterparts. There are also disparities between those neighborhoods primarily comprised of ethnic minorities and those of predominantly white residents. This in turn has an impact on the health of residents as well as intensifying the heat island effect in areas with low tree canopy. This analyses seeks to determine if the tree canopy coverage in the City of Portland, Oregon is equitably distributed.</p>
-<pre><code>Describe your problem in 2 - 3 sentences.
-Define the question that you seek to answer using regression analysis in 1 sentence.</code></pre>
 <h3 style="margin-top:1em;" class="anchored">Data</h3>
 <p>The study area for this analysis is the city limits of Portland, Oregon. Portland is located along the Columbia and Willmette Rivers. It is located on the northern border of Oregon across the Columbia River from Vancouver Washington.</p>
 <p>The data for this analysis consists of the <a href="https://gis-pdx.opendata.arcgis.com/datasets/PDX::street-tree-inventory-active-records/about">“Street Tree Inventory - Ative Records”</a> dataset downloaded from the PortlandMaps - Open Data site. It also includes the Portland City Limits feature extracted from the <a href="https://gis-pdx.opendata.arcgis.com/datasets/PDX::city-boundaries/about">“City Boundries”</a> dataset also downloaded from the PortlandMaps - Open Data site. Two Census datasets were downloaded from the ArcGIS Online Portal, the <a href="https://www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6">“USA 2020 Census Population Characteristics”</a> —which contains demographic information— and the <a href="https://www.arcgis.com/home/item.html?id=8f6b71915a144f60a3a6ca72b57cdb56">“USA Esri Demographics (Latest)</a> layer —which contains income information.</p>
@@ -445,7 +461,12 @@ State your assumptions (search criteria, minimum and maximum cutoffs for paramet
 <pre><code>Draw conclusions from your explanatory regression analysis and geographically weighted regression analysis as it relates to answering your questions. What does each analysis reveal about the patterns in your data. (2 - 3 paragraphs, &lt;500 words)
 Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, &lt;200 words)</code></pre>
 <h3 style="margin-top:1em;" class="anchored">References</h3>
-<p>Include any references or literature that you may cite while working on this analysis.</p>
+<p>“City Boundaries.” Arcgis.com, 4 Aug.&nbsp;2025, gis-pdx.opendata.arcgis.com/datasets/PDX::city-boundaries/about. Accessed 15 Aug.&nbsp;2025.</p>
+<p>McDonald, Robert I., et al.&nbsp;“The Tree Cover and Temperature Disparity in US Urbanized Areas: Quantifying the Association with Income across 5,723 Communities.” PLOS One, vol.&nbsp;16, no. 4, 28 Apr.&nbsp;2021, https://doi.org/10.1371/journal.pone.0249715.</p>
+<p>“Median Household Incoe 2025 - Esri Demographics.” Arcgis.com, 23 July 2025, www.arcgis.com/home/item.html?id=04b1d8c01fdd4920b52dc227dc42f186. Accessed 15 Aug.&nbsp;2025.</p>
+<p>“Street Tree Inventory - Active Records.” Arcgis.com, 23 Jan.&nbsp;2025, gis-pdx.opendata.arcgis.com/datasets/PDX::street-tree-inventory-active-records/about. Accessed 15 Aug.&nbsp;2025.</p>
+<p>“USA 2020 Census Population Characteristics.” Arcgis.com, 9 July 2025, www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6. Accessed 15 Aug.&nbsp;2025.</p>
+<p>“USA Esri Demographics (Latest).” Arcgis.com, 2025, www.arcgis.com/home/item.html?id=8f6b71915a144f60a3a6ca72b57cdb56. Accessed 15 Aug.&nbsp;2025.</p>
 </div>
 </div>
 </div>
