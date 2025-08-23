@@ -3,3 +3,26 @@ a {
   text-decoration: none;  /* Removes underline */
   color: #007bff;  /* Keeps link color (adjust as needed) */
 }
+
+/* Center all images in the dashboard content */
+.qmd-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%; /* prevent overflow */
+}
+
+/* Center images inside panel-tabset content */
+.panel-tabset img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+/* Center only figure captions inside panel-tabset */
+.panel-tabset figure figcaption {
+  text-align: center;
+  margin-top: 0.5em; /* optional spacing above caption */
+  font-style: italic; /* optional styling */
+}
