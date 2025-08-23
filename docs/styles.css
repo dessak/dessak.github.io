@@ -20,9 +20,10 @@ a {
   max-width: 100%;
 }
 
-/* Center only figure captions inside panel-tabset */
-.panel-tabset figure figcaption {
-  text-align: center;
-  margin-top: 0.5em; /* optional spacing above caption */
-  font-style: italic; /* optional styling */
+/* Center figure captions inside tabsets */
+.panel-tabset figure figcaption,
+.qmd-content figure figcaption {
+  text-align: center !important;
+  margin-top: 0.5em;
+  font-style: italic;
 }
