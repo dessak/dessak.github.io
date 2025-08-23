@@ -19,9 +19,19 @@ css: styles.css
 ```
 Define eight questions that include the following:  
   
+Attribute Query
+What Census block in tucson has the densist population?
+  
+
 two questions that can be answered using Attribute queries  
+
+SPatial Query
 two questions that can be answered using Spatial queries  
-two questions that can be answered using Spatial Joins  
+
+Spatial Join
+What Ward has the largest population?
+What ward has the largest hispanic population
+    
 two questions that can be answered using a combination of attribute and spatial queries as well as spatial joins  
 
 ```{=html}
@@ -431,7 +441,7 @@ While complete spatial randomness is not required for spatially balanced samplin
 
   
 
-This study area is a roughly 30 square kilometer, rectangular area, that encompasses Mount Tamalpais, a portion of Mount Tamalpais state park, as well as most of Muir Woods National Monument. These features utilized are located on the northern peninsula of the San Francisco Bay in Northern California which is located across the Golden Gate Strait from the City and County of San Francisco. It is a point feature class with attribute information regarding the plants sampled and various other information such as methodolgoies used. The only attribute used for this analysis is location. The point feature was clipped to the study area.
+This study area is a roughly 30 square kilometer, rectangular area, that encompasses Mount Tamalpais, a portion of Mount Tamalpais state park, as well as most of Muir Woods National Monument. These features utilized are located on the northern peninsula of the San Francisco Bay in Northern California which is located across the Golden Gate Strait from the City and County of San Francisco. It is a point feature class with attribute information regarding the plants sampled and various other information such as methodologies used. The only attribute used for this analysis is location. The point feature was clipped to the study area.
 
   
 
@@ -449,7 +459,7 @@ The dataset used for this analysis is the [Vegetation Survey Points - CDFW \[ds1
 
   
 
-These analyses use a Natural Earth projection which is a compromised of a pseudocylindrical projection. This was done to quickly and easily mimic a Cartesian plane with no need for tweaking parameters. However, because this is a compromise pseudocylindrical projection, distances are distorted. A conformal projection with parameters tweaked to mimic a Cartesian plane would be ideal.
+These analyses use a Natural Earth projection which is compromised of a pseudocylindrical projection. This was done to quickly and easily mimic a Cartesian plane with no need for tweaking parameters. However, because this is a compromise pseudocylindrical projection, distances are distorted. A conformal projection with parameters tweaked to mimic a Cartesian plane would be ideal.
 
   
 
@@ -496,7 +506,7 @@ Ripley's K is another distance-based calculation that evaluates multiple times o
 
   
 
-The study area was divided into 10 rows and 10 columns. This created 100 square quadrats of equal size comprised of 0.3 square kilometers each. Establishing quadrats of equal size was important to avoid bias from varying sizes having more or less opportunity to contain points. For the distance-based methods, it is assumed that the nearest neighbor lies within the study-area. This is the result of establishing a study area as not all points can be included. The Ripley's K tool was set to do 999 permutations —to establish reliable confidence intervals— of 10 bands with 300 m increments in an attempt to achieve approximately a maximum distance of about 10% the length of the study area.
+The study area was divided into 10 rows and 10 columns. This created 100 square quadrats of equal size comprised of 0.3 square kilometers each. Establishing quadrats of equal size was important to avoid bias from varying sizes having more or less opportunity to contain points. For the distance-based methods, it is assumed that the nearest neighbor lies within the study-area. This is the result of establishing a study area as not all points can be included. The Ripley's K tool was set to do 999 permutations —to establish reliable confidence intervals— of 10 bands with 300 meter increments in an attempt to achieve approximately a maximum distance of about 10% the length of the study area.
 
   
 
@@ -510,7 +520,7 @@ The study area was divided into 10 rows and 10 columns. This created 100 square 
 
   
 
-While the sampling points may seem fairly well distributed visually, when summing the points in each quadrat, 40% of them do not have a single point in them and about 20% only have one point in them (Figure 1). After performing the calculations for the Variance Mean Ratio, a VMR of ~2.8 was returned. This is larger than 1 which means the points are clustered (Figure 2).
+While the sampling points may seem fairly well distributed visually, when summing the points in each quadrat, 40% of them do not have a single point in them and another ~20% only have one point in them (Figure 1). After performing the calculations for the Variance Mean Ratio, a VMR of ~2.8 was returned. This is larger than 1 which means the points are clustered (Figure 2).
 
   
 
@@ -522,12 +532,11 @@ While the sampling points may seem fairly well distributed visually, when summin
 
   
 
-
 [**Average Nearest Neighbor**]{style="font-size: 18px;"}
 
   
 
-The average nearest neighbor returned a z-value of ~-9.1. This value implies the points are highly clustered. The analysis also returns a p-value of ~0.0 which implies the result is highly statistically significant (Figure 3). With both of these values, the null hypothesis can be rejected.
+The average nearest neighbor returned a ratio of ~0.63 which is less than 1, implying that it is clustered. A value larger than 1 would have implied the points were dispersed. It returned a z-value of ~-9.1. This value implies the points are highly clustered. The analysis also returns a p-value of ~0.0 which makes the result highly statistically significant (Figure 3). With the three of these values, the null hypothesis can be rejected.
 
   
 
@@ -541,6 +550,7 @@ The average nearest neighbor returned a z-value of ~-9.1. This value implies the
 
 Over the 10 distance bands of 300 meter increments, the observed K value were consistently above the upper confidence envelope. However, both the Observed K values and the Upper confidence envelope values drop below the Expected K (Figure 4). This is likely a result of edge effects since no edge correction was used and the larger distance values extend well beyond the edge of the study area when conducting the analysis.
 
+  
 
 ![Figure 4](Portfolio/VectorAnalysis/PointPattern/KFunction.png){.lightbox fig-align="center"}
 
@@ -554,8 +564,12 @@ Over the 10 distance bands of 300 meter increments, the observed K value were co
 
 While trying to spatially balance sampling sites is not the same as having a randomly distributed set of sample sites, the fact that all three analyses indicate there is significant clustering and the null hypothesis has been rejected means that the sites are not actually spatially balanced either. There may not have been any intent to spatially balance the sampling sites or there were enough "sites of opportunity" that were not allocated in a spatially balanced plan that the result is these sites are significantly clustered.
 
+  
+
 In this analysis, the ANN was the only method where a test for significance was applied but the result was extremely statistically significant clustering. The Ripley
 's K had odd behavior with the Upper confidence limit dropping below the expected values which adds some doubt to the results of that method but combined with the other two, the Null Hypothesis has been thoroughly rejected.
+
+  
 
 The limitations of these analysis are that they are very shape dependent. The density values can only correctly be calculated if the shapes are homogeneous in shape and area. Meanwhile the distance based methods have edge-effect issues that vary with the shape of the study area. As mentioned above, the Ripley's K was not calculated with edge correction, but even the edge correction is an interpolation that is not strictly representative of the data within the study area.
 
@@ -583,6 +597,8 @@ The limitations of these analysis are that they are very shape dependent. The de
 ```{=html}
 <h2 style="margin-top:1em;">Street Tree Canopy Equity in Portland Oregon</h2>
 ```
+
+  
 
 ```{=html}
 <h3 style="margin-top:1em;">Problem Statement</h3>
@@ -612,50 +628,106 @@ The data for this analysis consists of the ["Street Tree Inventory - Ative Recor
 
   
 
-
 ```{=html}
 <h3 style="margin-top:1em;">Methods</h3>
 ```
 
+  
+
 There were minimal demands for this analysis in determining a projection. Because we are attempting to sum the amounts of points in a polygon, and are calculations have already been predetermined, the only need is for accuracy of shape. Thus, the Oregon State Plane North projection was used which is Lambert conformal conic. The 2011 update to the 1983 North American Datum was used as the datum.
-
-
-The outcome we are interested in is tree density therefore trees per square kilometer is the dependent variable. In order to establish this variable trees within each census tract were summed and then divided by the area of the census tract. Explanatory variables utilized in exploratory analysis included Polulation Density (P001_calc_pctPopDensity), Percent of population who is white (P005_calc_pct0003), Ratio of males to females (P012_calc_pctRatio),  Median age of total population (P0130001), Median Household Income (MEDHINC_CY), and Median Home Value (MEDVAL_CY).
 
   
 
-
-
-    What projection did you use for your data? Describe why? (1 paragraph, <100 words)
-    Define your dependent and explanatory variables.
+The outcome we are interested in is tree density therefore trees per square kilometer is the dependent variable. In order to establish this variable trees within each census tract were summed and then divided by the area of the census tract. Explanatory variables utilized in exploratory analysis included Population Density (P001_calc_pctPopDensity), Percent of population who is white (P005_calc_pct0003), Ratio of males to females (P012_calc_pctRatio),  Median age of total population (P0130001), Median Household Income (MEDHINC_CY), and Median Home Value (MEDVAL_CY). Variables that were obviously colinear were not included e.g. Median age of total population was included but percent of population over 65 was not. 
 
   
 
 [**Exploratory Regression Analysis**]{style="font-size: 18px;"}
-  
-
-The exploratory regression analysis iterates though all possible combinations of variables from a given minimum count of variables to a given maximum count of variables. Each iteration evaluates an ordinary least squares model. The Exploratory Regression Analysis Geoprocessing tool in ArcGIS Pro allows the user to specify criteria that a model must meet in order to pass. These include a mimum Adjusted R Squared which evalutes the model fit, minimum Jaque Bera p value for evaluating the residuals and a minimum acceptable Spatial Autocorrelation p value for determining the acceptable similarity of nearby values. (Figure 1).
 
   
+
+The exploratory regression analysis iterates though all possible combinations of explanatory variables from a given minimum count of variables to a given maximum count. Each iteration evaluates an ordinary least squares model. The Exploratory Regression Analysis Geoprocessing tool in ArcGIS Pro allows the user to specify criteria that a model must meet in order to pass. These include a minimum Adjusted R Squared which evaluates the model fit, minimum Jaque Bera p value for evaluating the residuals and a minimum acceptable Spatial Autocorrelation p value for determining the acceptable similarity of nearby values. (Figure 1).
+
+  
+
+Ordinary Least Squares (OLS) regression analysis works by estimating the relationship between the dependent variable and explanatory variable(s) by finding the coefficiants of the explanatory variables that minimize the sum of the squared residuals. The residuals are the difference between the observed value and the predicted value. The OLS Spatial Statistics tool provides additional statistical calculations in a diagnostic table that help evaluate the performance of the model (Figure 2).
+
+  
+
+[**Geographically Weighted Regression Analysis**]{style="font-size: 18px;"}
+
+  
+
+Geographically Weighted Regression (GWR) analysis is similar to OLS in that it attempts to establish coefficients for each of the explanatory variables. It differs however in that it accounts for nonstationarity of those relationships across the study area. It accomplishes this using regression equations for each feature using nearby features that result in different coefficients for the explanatory variables across the study area.
+
+  
+
+In the exploratory Regression tool, the defaults were left on the Search Criteria with the exception of Maximum Number of Explanatory Variables which were set to the same as the total number of explanatory variables selected. This was done because at 7 variables, the number of variables was still small but gave the opportunity to include all variables should they all have been significant. (Figure 1) Default values were used for the remaining tools.
+
+  
+
 ![Figure 1](Portfolio/VectorAnalysis/SpatialRegression/ExploratorySearch.png){.lightbox fig-align="center"}
 
-        Describe the exploratory regression analysis method in your own words. (1 paragraph, <100 words)
-        Describe Ordinary Least Squares regression analysis in your own words. (1 paragraph, <100 words)
-    Geographically Weighed Regression Analysis
-        Describe Geographically Weighed Regression Analysis in your own words. (1 paragraph, <100 words
-        Explain if the relationship between your dependent variable and explanatory variables is nonstationary. (1 paragraph, <100 words)
-    State your assumptions (search criteria, minimum and maximum cutoffs for parameters, etc.) and explain why. (1 - 2 paragraphs, <200 words)
+  
+
 
 ```{=html}
 <h3 style="margin-top:1em;">Results</h3>
 ```
 
-    Exploratory Regression Analysis
-        Identify and describe the top three models (passing or not) from the exploratory regression analysis results using the statistics from your results in 1 paragraph (<100 words).
-        Report and explain all statistics for the top model (passing or not) in 1 paragraph (<100 words).
+  
+
+[**Exploratory Regression Analysis**]{style="font-size: 18px;"}
 
   
+
+None of the models pass the statistical requirements set in the Exploratory Regression tool's Search Criteria. This is because all of the Adjusted R-Squared values are below the 0.5 criteria. This has resulted in 7 models that explain the same amount of correlation with an Adjusted R-Squared of 0.39. Of those, the most explanatory variables included that are statistically significant is 3. This helps narrow the models down to ones that include 3 variables. Of those the only one with all three variables statistically significant also has the lowest AICc of 2118.85. This makes it the best model though it is a weak model. (Figure 2)
+
+  
+
+![Figure 2](Portfolio/VectorAnalysis/SpatialRegression/ExploratoryTable.png){.lightbox fig-align="center"}
+
+  
+
+After running the OLS on that model, there are further diagnostic statistics available. The coefficients (Green) for population density (P001_CALC_PCT0003) indicates that there is a small positive relationship.  Percentage of white residents (P005_CALC_PCT0003) has a larger positive relationship. And finally, the median age (P0130001) has a large negative correlation. The probability for all three (Yellow) is highly significant. The values for the Variance Inflation Factors (VIF) for all three variables are slightly larger than one which indicates there is not much redundancy in the variables. The Koenker Statistic was significant indicating the data are nonstationary. Finally, the ~0.56 probability for the Jarque-Bera Statistic means we can not definitively determine if the residuals are normally distributed.
+
+  
+
+![Figure 3](Portfolio/VectorAnalysis/SpatialRegression/OLSTable.png){.lightbox fig-align="center"}
+
+  
+
+After identifying 3 explanatory variables from the exploratory analysis, an OLS regression can be run to get diagnostic statistics not included in the exploratory analysis output table. After running the OLS regression, a Koenker Statistic has a significant p-value which means the relationship is nonstationary or heteroskedatic. (Figure 3) To confirm this we can run a Moran's I calculation which gives a result of ~0.48 which implies positive spatial autocorrelation. The p-value is ~0.0 which means this result is very statistically significant. (Figure 4) Running the Spatial Autocorrelation (Global Moran's I) Spatial Statistics Tool, a probability of ~0.0 and a positive value of~0.48  means that the data is spatially autocorrelated and clustered (Figure 5)
+
+  
+
+![Figure 4](Portfolio/VectorAnalysis/SpatialRegression/OLSDiagnostic.png){.lightbox fig-align="center"}
+
+  
+
+![Figure 5](Portfolio/VectorAnalysis/SpatialRegression/MoransSummary.png){.lightbox fig-align="center"}
+
+  
+
+[**Geographically Weighted Regression Analysis**]{style="font-size: 18px;"}
+
+  
+
+The Adjusted R-Squared for the GWR model is ~0.86 which is more than double what it was for the OLS model. The AICc of this model is also much lower than the OLS at ~1889.27 versus 2118.85. This also indicates that the GWR model is much better. With no other GWR models to compare to the Sigma-Squared and Sigma-Squared MLE do not give us much additional information. (Figure 6)
+
+  
+
+![Figure 6](Portfolio/VectorAnalysis/SpatialRegression/GWRTable.png){.lightbox fig-align="center"}
+  
+The Median Age results map shows that there are two regions of strong positive correlation (Purple) which means there is more tree canopy cover and a higher median age in those areas. Interestingly there are also som regions in the southwest of the city were the tree canopy decreases where there is a higher median age. (Dark Green)
+ 
+   
+ 
 ![](Portfolio/VectorAnalysis/SpatialRegression/GWRMedianAge.png){.lightbox fig-align="center"}
+
+  
+
+There is a core through the center of the city where there is a positive correlation between the percent of the population that is white and the density of tree canopy. This effect is particularly strong in the south central part of the city (Dark Purple). There are minimal areas where this effect is inverted.
 
   
 
@@ -663,16 +735,21 @@ The exploratory regression analysis iterates though all possible combinations of
 
   
 
-    Geographically Weighed Regression Analysis
-        Report and explain all statistics from the GWR results in 1 paragraph (<100 words).
-        Include maps of any 2 explanatory variables symbolized using graduated colors for the coefficients from the GWR results and describe key findings from these maps in 1 paragraph (<100 words).
-
 ```{=html}
 <h3 style="margin-top:1em;">Conclusion</h3>
 ```
 
-    Draw conclusions from your explanatory regression analysis and geographically weighted regression analysis as it relates to answering your questions. What does each analysis reveal about the patterns in your data. (2 - 3 paragraphs, <500 words)
-    Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, <200 words)
+  
+
+This analysis shows that the City of Portland does have opportunity for improvement for tree canopy equity but surprisingly the city is fairly equitable between income groups. There was however still racial disparity with a strong correlation through much of the city where census tracts that consisted of a higher percentage of white residents had more tree canopy. Perhaps the most surprising finding though was the some of the strongest correlation was with the median age of the Census Tract.
+
+  
+
+The GWR was a far superior model as evidenced by nearly every statistical measure. The effect could also be seen visually on the maps as the clustering is very evident. While the effect of the density of population was significant in the results. The strength of the correlation was minimal in both the OLS and GWR.
+
+There were several limitations in this analysis that could possible be overcome with more data or the addition of other datasets and analysis. One limitation is that the method used for normalization of the tree distributions was density by area of the census tract, however, the trees being measured are along the street network so it is possible that there are areas where the total area may be larger but the total linear street networn within that Census tract is lower than others and visa versa and this would introduce bias. An analysis normalizing thre tree data as trees per kilometer of road network in the census tract would probably improve results.
+
+  
 
 ```{=html}
 <h3 style="margin-top:1em;">References</h3>
