@@ -11,53 +11,78 @@ css: styles.css
 ### Queries & Joins
 
 ```{=html}
-<h2 style="margin-top:1em;">Title of Analysis</h2>
+<h2 style="margin-top:1em;">Analysing Tucson Demographic Attributes</h2>
 ```
-
+  
 ```{=html}
 <h3 style="margin-top:1em;">Questions</h3>
 ```
-Define eight questions that include the following:  
   
-Attribute Query
-What Census block in tucson has the densist population?
+[**Attribute Query**]{style="font-size: 18px;"}
+
+  
+What Census tract in Tucson has the densest population?
+  
+What Census tracts have a greater proportion of female residents?
   
 
-two questions that can be answered using Attribute queries  
+[**Spatial Query**]{style="font-size: 18px;"}
+  
+What are the census tracts that intersect the city of Tucson
+  
+How many census tract centroids fall within the Ward 1 boundry?
+  
 
-SPatial Query
-two questions that can be answered using Spatial queries  
-
-Spatial Join
+[**Spatial Join**]{style="font-size: 18px;"}
+  
 What Ward has the largest population?
-What ward has the largest hispanic population
-    
-two questions that can be answered using a combination of attribute and spatial queries as well as spatial joins  
+  
+What ward has the largest percentage Hispanic population?
+
+
+[**Combined Joins and Queries**]{style="font-size: 18px;"}    
+  
+  
+<!--two questions that can be answered using a combination of attribute and spatial queries as well as spatial joins  -->
 
 ```{=html}
 <h3 style="margin-top:1em;">Data</h3>
 ```
 
+  
 
-Describe your study area in 3 - 5 sentences to provide a frame of reference.  
-Describe your data in 2 - 3 sentences.  
-Include a map of your study area showing your data.  
+The study area is comprised of the city limits for Tucson, Arizona. Tucson is located in Eastern Pima County which is located in Southern Arizona. 
+
+
+The data used for this project consists of  the ["Jurisdicitonal Boundries"](https://gisopendata.pima.gov/datasets/PimaMaps::jurisdictional-boundaries/about) dataset from the Pima County Geospatial Data Portal as well as the ["City of Tucson Ward Boundaries"](https://gisdata.tucsonaz.gov/datasets/cotgis::city-of-tucson-ward-boundaries/about) dataset from the CIty of Tucson Open Data portal. Census data was obtained from the ArcGIS Online Portal from the ["USA 2020 Census Population Characteristics"](https://www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6) layer.
+
+  
+![](Portfolio/VectorAnalysis/QueriesJoins/StudyArea.png){.lightbox} 
+  
 
 ```{=html}
 <h3 style="margin-top:1em;">Methods</h3>
 ```
 
+  
+There were minimal requirements for a coordinate system for this project. Since spatial joins and queries are going to be made, a conformal projection is ideal. For that reason and because of the location of the study area, the StatePlane Central projection was used. The 2011 update to the North American Datum was used for the datum. The distance unit selected was meters.
+  
 
-What projection did you use for your data? Describe why? (1 paragraph, <100 words)  
 Attribute Queries  
-Describe all the steps taken to answer your questions. (1 paragraph, <100 words)   
+  
+![](Portfolio/VectorAnalysis/QueriesJoins/SelectDens.png){.lightbox} 
+  
+![](Portfolio/VectorAnalysis/QueriesJoins/SelectRatio.png){.lightbox} 
+  
+<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words)    -->
 Spatial Queries  
-Describe all the steps taken to answer your questions. (1 paragraph, <100 words)  
+  
+<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words) -->  
 Spatial Joins  
-Describe all the steps taken to answer your questions. (1 paragraph, <100 words)  
+<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words) -->  
 Combination  
-Describe all the steps taken to answer your questions. (1 paragraph, <100 words)   
-State your assumptions and explain why. (1 - 2 paragraphs, <200 words)  
+<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words)   
+State your assumptions and explain why. (1 - 2 paragraphs, <200 words)  -->
 
 ```{=html}
 <h3 style="margin-top:1em;">Results</h3>
@@ -65,30 +90,38 @@ State your assumptions and explain why. (1 - 2 paragraphs, <200 words)
 
 
 Attribute Queries  
-Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.  
+  
+![](Portfolio/VectorAnalysis/QueriesJoins/MaxDens.png){.lightbox}
+  
+<!--Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results.-->  
 Spatial Queries  
-Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.  
+  
+![](Portfolio/VectorAnalysis/QueriesJoins/Centroids.png){.lightbox}
+  
+<!--Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results. --> 
+  
+
 Spatial Joins  
-Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.  
+<!--Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results.-->  
 Combination  
-Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.  
+<!--Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results.-->  
 
 ```{=html}
 <h3 style="margin-top:1em;">Conclusion</h3>
 ```
 
 
-Draw conclusions from your analyses as it relates to answering each of your questions. (2 - 3 paragraphs, <500 words)  
-Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, <200 words)  
+<!--Draw conclusions from your analyses as it relates to answering each of your questions. (2 - 3 paragraphs, <500 words)  
+Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, <200 words)-->  
 
 ```{=html}
 <h3 style="margin-top:1em;">References</h3>
 ```
-Include any references or literature that you may cite while working on this analysis.  
+<!--Include any references or literature that you may cite while working on this analysis-->.  
 
 ### Network Analysis
 
@@ -670,14 +703,13 @@ In the exploratory Regression tool, the defaults were left on the Search Criteri
 
   
 
-
 ```{=html}
 <h3 style="margin-top:1em;">Results</h3>
 ```
 
   
 
-[**Exploratory Regression Analysis**]{style="font-size: 18px;"}
+[**Exploratory Regression Analysis**]{style="font-size: 18px;"}  
 
   
 
@@ -709,7 +741,7 @@ After identifying 3 explanatory variables from the exploratory analysis, an OLS 
 
   
 
-[**Geographically Weighted Regression Analysis**]{style="font-size: 18px;"}
+[**Geographically Weighted Regression Analysis**]{style="font-size: 18px;"}  
 
   
 
