@@ -564,9 +564,6 @@ The limitations of these analysis are that they are very shape dependent. The de
 ```{=html}
 <h3 style="margin-top:1em;">References</h3>
 ```
-Include any references or literature that you may cite while working on this analysis.
-
-### Spatial Regression
 
   
 
@@ -579,6 +576,9 @@ Include any references or literature that you may cite while working on this ana
 “Vegetation Survey Points - CDFW [Ds1020].” Ca.gov, 2020, gis.data.ca.gov/maps/b3e92f99881b4b03bab0ef8d74c229e9/about. Accessed 8 Aug. 2025.
 
   
+
+### Spatial Regression
+
 
 ```{=html}
 <h2 style="margin-top:1em;">Street Tree Canopy Equity in Portland Oregon</h2>
