@@ -35,7 +35,7 @@ What is the population of Ward 1 based on Census tract centroids?
   
 [**Attribute Query**]{style="font-size: 18px;"}
   
-What is the highest populatin density in the city?
+What is the highest population density in the city?
   
 Which centroids have a larger ratio of women than men?
   
@@ -70,36 +70,43 @@ The data used for this project consists of  the ["Jurisdicitonal Boundries"](htt
 There were minimal requirements for a coordinate system for this project. Since spatial joins and queries are going to be made, a conformal projection is ideal. For that reason and because of the location of the study area, the StatePlane Central projection was used. The 2011 update to the North American Datum was used for the datum. The distance unit selected was meters.
   
 
-
-  
-<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words)    -->
 Spatial Queries  
 
   
+To select the Census tracts that intersect with the City of Tucson, a spatial query is done using the Select Layer By Location Geoprocessing tool. The layer containing the Census tracts is used for Input Features and the layer containing Tucson's city limits is used as the selecting features. (Figure 1). The selected features can then be exported to a new layer.
 
-![](Portfolio/VectorAnalysis/QueriesJoins/CityLimitsTract.png){.lightbox} 
+  
+![Figure 1](Portfolio/VectorAnalysis/QueriesJoins/CityLimitsTract.png){.lightbox} 
 
   
 
-![](Portfolio/VectorAnalysis/QueriesJoins/SelectCentroids.png){.lightbox} 
+Once the intersecting tracts have been exported to a new layer and converted to centroids we can select the centroids that fall within the city limits. The Select Layer By Location tool is used again with Centroids as the Input Features and the City Limits layer as the Selecting Features but this time the relationship chosen is "Within" to select only the centroids that lie within the city limits. (Figure 2)
+
   
-<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words) -->  
+![Figure 2](Portfolio/VectorAnalysis/QueriesJoins/SelectCentroids.png){.lightbox} 
+  
+
 Spatial Joins  
   
-![](Portfolio/VectorAnalysis/QueriesJoins/JoinPopCity.png){.lightbox}
+In order to get the total population of centroids located within Tucson, we must join the Total Population attribute from the centroids to the City Limits layer. Because the Total Population attribute of multiple centroids are being included into one polygon, we must sum them together. (Figure 3)
+  
+![Figure 3](Portfolio/VectorAnalysis/QueriesJoins/JoinPopCity.png){.lightbox}
+  
+The same process can be used to find the total population of each ward. In this case, the summed population for each ward is added under the the summed population attribute and the different totals are available in each ward's respective line in the attribute table. (Figure 4)
+  
+![Figure 4](Portfolio/VectorAnalysis/QueriesJoins/JoinWardPop.png){.lightbox}
   
 
-![](Portfolio/VectorAnalysis/QueriesJoins/JoinWardPop.png){.lightbox}
-  
 
-<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words) -->  
 Attribute Queries  
   
-
+In order to find which centroid has the highest population density we can use the Select By Attributes tool This tool does not offer the ability to find a SQL "MAX" query from the graphic user interface but it can be done using the SQL Editor option in the tool (Figure 5). The will select the centroid in the attribute table and we can see what the density is.
   
-![](Portfolio/VectorAnalysis/QueriesJoins/SelectDens.png){.lightbox} 
+![Figure 5](Portfolio/VectorAnalysis/QueriesJoins/SelectDens.png){.lightbox} 
   
-![](Portfolio/VectorAnalysis/QueriesJoins/SelectRatio.png){.lightbox} 
+Finding the centroids that have a higher ratio of female residents is much simpler and can be done using the GUI query builder. For this attribute anything less than 100 represents a higher ratio of female residents. Because of this, we query for all centroids where the "Ratio of males to females" attribute is less than 100. (Figure 6)
+  
+![Figure 6](Portfolio/VectorAnalysis/QueriesJoins/SelectRatio.png){.lightbox} 
   
 Combination  
   
@@ -488,7 +495,7 @@ Robbins, Natalie. “Tucson Needs 35k Housing Units to Meet Demand; Officials Ho
   
 
 ```{=html}
-<h3 style="margin-top:1em;">Problelm Statement</h3>
+<h3 style="margin-top:1em;">Problem Statement</h3>
 ```
 
   
@@ -840,16 +847,20 @@ McDonald, Robert I., et al. “The Tree Cover and Temperature Disparity in US Ur
 
 :::
 # Tucson Drainage Basin
-
-## Objective
-
+  
+```{=html}
+<h3 style="margin-top:1em;">Problem Statement</h3>
+```
+  
 The dry rivers and washes of the Tucson area often fill at incredible speed even when rainfall is limited to portions of the Tucson area at great distances away from the point of observation. This is very likely due to the contributing drainage features comprising a large drainage basin. This project seeks to determine how large the drainage basin is for runoff in the Tucson area.
-
-[**Data**]{style="font-size: 24px;"}
-
+  
+```{=html}
+<h3 style="margin-top:1em;">Data</h3>
+```
+  
 The area used to determine the location of the drainage point will comprise Tucson, Arizona and surrounding suburbs.
-The analysis uses Shuttle Radar Topography Mission (SRTM) raster data, which comprise Digital Elevation Models (DEMs).
-
+The analysis uses Shuttle Radar Topography Mission (SRTM) raster data, which make up Digital Elevation Models (DEMs).
+  
 Name of dataset: Shuttle Radar Topography Mission Void Filled<br>
 Publication date: 2012/10/01<br>
 Date updated: 2025/03/10<br>
@@ -861,62 +872,93 @@ Projection: Not projected<br>
 Horizontal datum: D WGS 1984<br>
 WKID: 4326<br>
 Data Type: raster<br>
+  
 
+![](Portfolio/RasterAnalysis/StudyArea.png){.lightbox fig-align="center"}
+
+  
+```{=html}
+<h3 style="margin-top:1em;">Methodology</h3>
+```
+  
+[**ArcGIS Pro Model**]{style="font-size: 18px;"}
+
+ArcGIS Pro Model Builder allows the user to create a series of connected geoprocessing tools through a graphic user interface. This can help plan out complicated processing as well as allowing for repeated use of the same steps with the same settings. Figure 1 represents the workflow used for this analysis.
+
+![Figure 1](Portfolio/Model.png){.lightbox fig-align="center"}
+  
 [**Pre-processing**]{style="font-size: 18px;"}
-
-
-
+  
+The SRTM rasters were first projected into the USA Contiguous Albers Equal Area Conic using the 1983 North American Datum with 2011 update. This was done to preserve area as this analysis will determine the total area of the drainage basin. The newly projected rasters can then be combined using the Mosaic To New Raster (Data Management) tool. After they have been combined into a single new raster, voids were filled using a raster calculator function. This function identified cells with NULL values and used focal statics to create a value based on a circle of cells of with a radius of 7 cells. The radius was identified through experimentation as the minimum necessary distance to fill all voids.
+  
 [**Elevation of Tucson Area**]{style="font-size: 18px;"}
-
-After SRTM rasters were merged, they were projected to the Arizona State Plane Coordinate System and clipped to the area of interest to create a Digital Elevation Model (DEM) of the Tucson area.
-
-![](Portfolio/SRTM_Map.png){.lightbox fig-align="center"}
+  
+After combining and void filling, the DEM can be clipped to the area of interest.
+  
+![](Portfolio/RasterAnalysis/SRTM_Map.png){.lightbox fig-align="center"}
+  
+[**Sinks**]{style="font-size: 18px;"}
+  
+A raw DEM contains various cells that have erroneous values. This means that in a flow direction analysis, there could be areas in which water flows into an erroneous cell instead of flowing as part of the rest of the drainage basin. The Fill (Spatial Analyst) tool can be used to rectify the sinks. This works by raising the value of cell that is lower than the surrounding cells up to the value of it's surrounding cells.
+  
+![](Portfolio/RasterAnalysis/Sinks.png){.lightbox fig-align="center"}
+  
 
 [**Flow Direction**]{style="font-size: 18px;"}
 
-After establishing a DEM, flow direction can be determined.
+While flow direction is a necessary step for identifying sinks, identifying sinks is not a necessary step in determining the drainage features. Instead, the Fill (Spatial Analyst) tool can be used on the DEM to correct sinks. Then, the Flow Direction (Spatial Analyst) tool processes the direction in which water will travel for each cell. This analysis used 8 directions (D8).
 
-![](Portfolio/FlowDirection.png){.lightbox fig-align="center"}
+![](Portfolio/RasterAnalysis/FlowDirection.png){.lightbox fig-align="center"}
 
-[**Sinks**]{style="font-size: 18px;"}
+[**Flow Accumulation Drainage Features**]{style="font-size: 18px;"}
+  
+With an established Flow Direction raster, we can now analyse how much accumulated water flows into each cell. Using the Flow Accumulation (Spatial Analyst) tool, each cell is assigned a value that counts the cells that flow into it from higher up in the drainage basin. To identify major water features, a floor of 125,000 cells of flow was used. For a clearer picture of the drainage features, Derive Stream As Line (Spatial Analyst) tool can be used. For this analysis the Stahler ID method of identifying features was used which establishes in order in which a higher value is assigned to segments that have lower value segments flowing into it. Once the accumulation has been calculated, the cell with the highest value can be identified. This is the drainage point for the area of interest.
 
-Flow direction can then be used to identify sinks. These sinks must be filled to determine drainage features.
-
-![](Portfolio/Sinks.png){.lightbox fig-align="center"}
-
-[**Flow Accumulation**]{style="font-size: 18px;"}
-
-Since the sinks are now filled, flow direction is redetermined and then used to calculate flow accumulation.
-![](Portfolio/FlowAcc.png){.lightbox fig-align="center"}
-
-[**Drainage Features**]{style="font-size: 18px;"}
-
-In a seperate process, using just the original DEM, drainage features can be determined. The Sthalar method was used for this step to determine drainage feature order. This allows for better visualization of the major drainage features than can be seen in the flow accumulation raster.
-
-![](Portfolio/DrainageFeatures.png){.lightbox fig-align="center"}
+![](Portfolio/RasterAnalysis/DrainageFeatures.png){.lightbox fig-align="center"}
 
 [**Tucson Area Watersheds**]{style="font-size: 18px;"}
 
-Using a calculation that extracts streams and larger drainage feature that have at least 125,000 cells of accumulated flow along with using the flow accumulation, the watersheds for the Tucson area are then calculated.
+Using a calculation that extracts cells that have at least 125,000 cells of accumulated flow along with flow direction, the watersheds in the area of interest can be identified.
 
-![](Portfolio/Watersheds.png){.lightbox fig-align="center"}
+![](Portfolio/RasterAnalysis/Watersheds.png){.lightbox fig-align="center"}
 
 [**Complete Drainage Basin**]{style="font-size: 18px;"}
 
-While the original intent was to visualize the watersheds in the Tucson area, the watersheds of the drainage point extend beyond the area of interest. Using the original merged SRTM DEM, the calculations can be used again to capture the entire drainage basin for the drainage point and visualized using a smaller scale.
+To be able to calculate the area of the entire drainage basin for the drainage (pour) point, the analysis must extend beyond the area of interest. Using the same process for identifying the watersheds for the drainage features of the area of interest, we can repeat the analysis using the entire combined raster DEM for all of South Eastern Arizona and the pour point.
 
-![](Portfolio/DrainageBasin.png){.lightbox fig-align="center"}
+![](Portfolio/RasterAnalysis/DrainageBasin.png){.lightbox fig-align="center"}
 
-[**ArcGIS Pro Model**]{style="font-size: 18px;"}
+  
 
-The below model represents the workflow used to create the above maps.
+```{=html}
+<h3 style="margin-top:1em;">Conclusions</h3>
+```
+  
+The attribute table of the drainage basin raster contains the count of cells that make up the entire drainage basin. A simple calculation using the dimensions of each cell (30 meters to a side) and the total cells, gives the total area of the drainage basin.
+  
+$$
+\bigl(30\,\text{m}\times30\,\text{m}\bigr)\times(\text{Total Cells})\times
+\frac{1\,\text{km}^2}{1{,}000{,}000\,\text{m}^2}
+$$
+  
+With a total cell count of 8,874,509, the basin is approximately 7,987 km^2 in size. This is a considerable area contributing to the flow of water exiting the Tucson area from Marana. While these drainage features are usually dry, heavy or prolonged precipitation within the drainage basin can result in large flows of water in the drainage features of interest even if there is no precipitation within our study area.
+  
+```{=html}
+<h3 style="margin-top:1em;">Limitations</h3>
+```
+  
+The SRTM rasters retrieved from USGS only extend partially into Mexico. This limits the extent of the basin that can be identified as the basin appears to extend beyond those limits. The SRTM data only offers lower resolution rasters for the segments extending further into Mexico. This limits a complete analysis of the study area extended into Mexico to lower resolution or resampled SRTM rasters for the areas used in this analysis. This analysis does not comprise the entire Santa Cruz River Basin as the pour point used for our analysis was where the water drained out of our area of interest. To determine the entire Santa Cruz River Basin, a pour point where the Santa Cruz River ends should be used.
 
-![](Portfolio/Model.png){.lightbox fig-align="center"}
+In some cases, sinks can be naturally occurring features. This analysis did not identify nor distinguish natural sinks from artificial sinks created for erroneous data and all sinks were filled.
+  
+```{=html}
+<h3 style="margin-top:1em;">Sources</h3>
+```
+  
 
-[**Sources**]{style="font-size: 18px;"}
-
+  
 U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/
-
+  
 Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com
 
 # ISTA498-Capstone

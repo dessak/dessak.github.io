@@ -4,7 +4,11 @@ a {
   color: #007bff;  /* Keeps link color (adjust as needed) */
 }
 
-/* Center all images in the dashboard content */
+/* Center all images */
+.panel img,
+.panel-fill img,
+.panel-tabset img,
+.tab-pane img,
 .qmd-content img {
   display: block;
   margin-left: auto;
@@ -12,15 +16,11 @@ a {
   max-width: 100%; /* prevent overflow */
 }
 
-/* Center images inside panel-tabset content */
-.panel-tabset img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-}
 
-/* Center figure captions inside tabsets */
+/* Center figure captions everywhere */
+.tab-pane figure figcaption,
+.panel figure figcaption,
+.panel-fill figure figcaption,
 .panel-tabset figure figcaption,
 .qmd-content figure figcaption {
   text-align: center !important;
