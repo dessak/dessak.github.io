@@ -8,7 +8,7 @@ css: styles.css
 
 ::: {.panel-tabset}
 
-### Queries & Joins
+<!-- ### Queries & Joins
 
 ```{=html}
 <h2 style="margin-top:1em;">Analysing Tucson Demographic Attributes</h2>
@@ -67,7 +67,7 @@ The data used for this project consists of  the ["Jurisdicitonal Boundries"](htt
 ```
 
   
-There were minimal requirements for a coordinate system for this project. Since spatial joins and queries are going to be made, a conformal projection is ideal. For that reason and because of the location of the study area, the StatePlane Central projection was used. The 2011 update to the North American Datum was used for the datum. The distance unit selected was meters.
+There were minimal requirements for a coordinate system for this project. Since spatial joins and queries are going to be made, a conformal projection is ideal. For that reason and because of the location of the study area, the Arizona State Plane Central projection was used. The 2011 update to the North American Datum was used for the datum. The distance unit selected was meters.
   
 
 Spatial Queries  
@@ -110,8 +110,8 @@ Finding the centroids that have a higher ratio of female residents is much simpl
   
 Combination  
   
-<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words)   
-State your assumptions and explain why. (1 - 2 paragraphs, <200 words)  -->
+Describe all the steps taken to answer your questions. (1 paragraph, <100 words)   
+State your assumptions and explain why. (1 - 2 paragraphs, <200 words)
 
 ```{=html}
 <h3 style="margin-top:1em;">Results</h3>
@@ -120,8 +120,8 @@ State your assumptions and explain why. (1 - 2 paragraphs, <200 words)  -->
 
 
   
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.-->  
+Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results.  
 Spatial Queries  
 
   
@@ -130,8 +130,8 @@ Spatial Queries
   
 ![](Portfolio/VectorAnalysis/QueriesJoins/Centroids.png){.lightbox}
   
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results. --> 
+Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results. 
   
 
 Spatial Joins  
@@ -140,8 +140,8 @@ Spatial Joins
   
 ![](Portfolio/VectorAnalysis/QueriesJoins/Ward1Pop.png){.lightbox} 
   
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.-->  
+Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results.  
 Attribute Queries  
   
 
@@ -150,21 +150,21 @@ Attribute Queries
 ![](Portfolio/VectorAnalysis/QueriesJoins/TractGender.png){.lightbox}
   
 Combination  
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.-->  
+Describe your results. (1-2 paragraph, <200 words)  
+Include any tables or maps that help explain your results.  
 
 ```{=html}
 <h3 style="margin-top:1em;">Conclusion</h3>
 ```
 
 
-<!--Draw conclusions from your analyses as it relates to answering each of your questions. (2 - 3 paragraphs, <500 words)  
-Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, <200 words)-->  
+Draw conclusions from your analyses as it relates to answering each of your questions. (2 - 3 paragraphs, <500 words)  
+Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, <200 words)  
 
 ```{=html}
 <h3 style="margin-top:1em;">References</h3>
 ```
-<!--Include any references or literature that you may cite while working on this analysis-->.  
+Include any references or literature that you may cite while working on this analysis.  -->
 
 ### Network Analysis
 
@@ -959,7 +959,6 @@ In some cases, sinks can be naturally occurring features. This analysis did not 
   
 U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/
   
-Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com
 
 # ISTA498-Capstone
 

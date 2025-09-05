@@ -149,103 +149,9 @@ ul.task-list li input[type="checkbox"] {
 <div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
 <div class="card-body html-fill-item html-fill-container">
 <div class="tabset-margin-container"></div><div class="panel-tabset html-fill-item html-fill-container">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Queries &amp; Joins</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Network Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Suitability Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Point Pattern Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Spatial Regression</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Network Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Suitability Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Point Pattern Analysis</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Spatial Regression</a></li></ul>
 <div class="tab-content html-fill-item html-fill-container">
 <div id="tabset-1-1" class="tab-pane active html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<h2 style="margin-top:1em;" class="anchored">Analysing Tucson Demographic Attributes</h2>
-<h3 style="margin-top:1em;" class="anchored">Questions</h3>
-<span style="font-size: 18px;"><strong>Spatial Query</strong></span>
-<p>What are the census tracts that intersect the city of Tucson</p>
-<p>Which tract centroids lie within the city limits?</p>
-<span style="font-size: 18px;"><strong>Spatial Join</strong></span>
-<p>What is the total population of Tucson based on Census tract centroids?</p>
-<p>What is the population of Ward 1 based on Census tract centroids?</p>
-<span style="font-size: 18px;"><strong>Attribute Query</strong></span>
-<p>What is the highest population density in the city?</p>
-<p>Which centroids have a larger ratio of women than men?</p>
-<span style="font-size: 18px;"><strong>Combined Joins and Queries</strong></span>
-<p>What Ward has the largest population? (Spatial Join &amp; Attribute)</p>
-<p>Of the census tracts that intersect the city but whose centroids lie outside the city, which one has the largest population?</p>
-<h3 style="margin-top:1em;" class="anchored">Data</h3>
-<p>The study area is comprised of the city limits for Tucson, Arizona. Tucson is located in Eastern Pima County which is located in Southern Arizona.</p>
-<p>The data used for this project consists of the <a href="https://gisopendata.pima.gov/datasets/PimaMaps::jurisdictional-boundaries/about">“Jurisdicitonal Boundries”</a> dataset from the Pima County Geospatial Data Portal as well as the <a href="https://gisdata.tucsonaz.gov/datasets/cotgis::city-of-tucson-ward-boundaries/about">“City of Tucson Ward Boundaries”</a> dataset from the CIty of Tucson Open Data portal. Census data was obtained from the ArcGIS Online Portal from the <a href="https://www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6">“USA 2020 Census Population Characteristics”</a> layer.</p>
-<a href="Portfolio/VectorAnalysis/QueriesJoins/StudyArea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="Portfolio/VectorAnalysis/QueriesJoins/StudyArea.png" class="img-fluid"></a>
-<h3 style="margin-top:1em;" class="anchored">Methods</h3>
-<p>There were minimal requirements for a coordinate system for this project. Since spatial joins and queries are going to be made, a conformal projection is ideal. For that reason and because of the location of the study area, the StatePlane Central projection was used. The 2011 update to the North American Datum was used for the datum. The distance unit selected was meters.</p>
-<p>Spatial Queries</p>
-<p>To select the Census tracts that intersect with the City of Tucson, a spatial query is done using the Select Layer By Location Geoprocessing tool. The layer containing the Census tracts is used for Input Features and the layer containing Tucson’s city limits is used as the selecting features. (Figure 1). The selected features can then be exported to a new layer.</p>
-<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
-<figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/QueriesJoins/CityLimitsTract.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 1"><img src="Portfolio/VectorAnalysis/QueriesJoins/CityLimitsTract.png" class="img-fluid figure-img" alt="Figure 1"></a></p>
-<figcaption>Figure 1</figcaption>
-</figure>
-</div>
-<p>Once the intersecting tracts have been exported to a new layer and converted to centroids we can select the centroids that fall within the city limits. The Select Layer By Location tool is used again with Centroids as the Input Features and the City Limits layer as the Selecting Features but this time the relationship chosen is “Within” to select only the centroids that lie within the city limits. (Figure 2)</p>
-<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
-<figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/QueriesJoins/SelectCentroids.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 2"><img src="Portfolio/VectorAnalysis/QueriesJoins/SelectCentroids.png" class="img-fluid figure-img" alt="Figure 2"></a></p>
-<figcaption>Figure 2</figcaption>
-</figure>
-</div>
-<p>Spatial Joins</p>
-<p>In order to get the total population of centroids located within Tucson, we must join the Total Population attribute from the centroids to the City Limits layer. Because the Total Population attribute of multiple centroids are being included into one polygon, we must sum them together. (Figure 3)</p>
-<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
-<figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/QueriesJoins/JoinPopCity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 3"><img src="Portfolio/VectorAnalysis/QueriesJoins/JoinPopCity.png" class="img-fluid figure-img" alt="Figure 3"></a></p>
-<figcaption>Figure 3</figcaption>
-</figure>
-</div>
-<p>The same process can be used to find the total population of each ward. In this case, the summed population for each ward is added under the the summed population attribute and the different totals are available in each ward’s respective line in the attribute table. (Figure 4)</p>
-<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
-<figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/QueriesJoins/JoinWardPop.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 4"><img src="Portfolio/VectorAnalysis/QueriesJoins/JoinWardPop.png" class="img-fluid figure-img" alt="Figure 4"></a></p>
-<figcaption>Figure 4</figcaption>
-</figure>
-</div>
-<p>Attribute Queries</p>
-<p>In order to find which centroid has the highest population density we can use the Select By Attributes tool This tool does not offer the ability to find a SQL “MAX” query from the graphic user interface but it can be done using the SQL Editor option in the tool (Figure 5). The will select the centroid in the attribute table and we can see what the density is.</p>
-<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
-<figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/QueriesJoins/SelectDens.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 5"><img src="Portfolio/VectorAnalysis/QueriesJoins/SelectDens.png" class="img-fluid figure-img" alt="Figure 5"></a></p>
-<figcaption>Figure 5</figcaption>
-</figure>
-</div>
-<p>Finding the centroids that have a higher ratio of female residents is much simpler and can be done using the GUI query builder. For this attribute anything less than 100 represents a higher ratio of female residents. Because of this, we query for all centroids where the “Ratio of males to females” attribute is less than 100. (Figure 6)</p>
-<div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
-<figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/QueriesJoins/SelectRatio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 6"><img src="Portfolio/VectorAnalysis/QueriesJoins/SelectRatio.png" class="img-fluid figure-img" alt="Figure 6"></a></p>
-<figcaption>Figure 6</figcaption>
-</figure>
-</div>
-Combination
-<!--Describe all the steps taken to answer your questions. (1 paragraph, <100 words)   
-State your assumptions and explain why. (1 - 2 paragraphs, <200 words)  -->
-<h3 style="margin-top:1em;" class="anchored">Results</h3>
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.-->
-<p>Spatial Queries</p>
-<a href="Portfolio/VectorAnalysis/QueriesJoins/TractIntersect.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="Portfolio/VectorAnalysis/QueriesJoins/TractIntersect.png" class="img-fluid"></a>
-<a href="Portfolio/VectorAnalysis/QueriesJoins/Centroids.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="Portfolio/VectorAnalysis/QueriesJoins/Centroids.png" class="img-fluid"></a>
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results. -->
-<p>Spatial Joins</p>
-<a href="Portfolio/VectorAnalysis/QueriesJoins/MaxDens.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="Portfolio/VectorAnalysis/QueriesJoins/MaxDens.png" class="img-fluid"></a>
-<a href="Portfolio/VectorAnalysis/QueriesJoins/Ward1Pop.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="Portfolio/VectorAnalysis/QueriesJoins/Ward1Pop.png" class="img-fluid"></a>
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.-->
-<p>Attribute Queries</p>
-<a href="Portfolio/VectorAnalysis/QueriesJoins/TractGender.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="Portfolio/VectorAnalysis/QueriesJoins/TractGender.png" class="img-fluid"></a>
-<p>Combination<br>
-<!--Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.--></p>
-<h3 style="margin-top:1em;" class="anchored">Conclusion</h3>
-<!--Draw conclusions from your analyses as it relates to answering each of your questions. (2 - 3 paragraphs, <500 words)  
-Discuss any limitations in your analysis and how they affect your conclusions. (1-2 paragraphs, <200 words)-->
-<h3 style="margin-top:1em;" class="anchored">References</h3>
-<!--Include any references or literature that you may cite while working on this analysis-->
-.
-</div>
-<div id="tabset-1-2" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <h2 style="margin-top:1em;" class="anchored">San Francisco Street Network Analysis</h2>
 <h3 style="margin-top:1em;" class="anchored">Problem Statement</h3>
 <p>Emergency responders have to contend with many issues when organizing their responses including street closures and limited access for special events and construction. These are issues best resolved with network analysis. This analysis seeks to identify changes as a result of limited access on a single day as well as long term planning with the following questions:</p>
@@ -259,7 +165,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>The street network feature dataset is from ESRI’s <a href="https://www.esri.com/training/catalog/5a1da3e0e79aee27e8839e8b/optimizing-routes-for-efficient-fleet-management/">“Optimizing Routes for Efficient Fleet Management”</a> tutorial. The <a href="https://data.sfgov.org/City-Infrastructure/City-Facilities-Fire-Department-Jurisdiction-or-Le/mt4k-j2ju/about_data">“City Facilities - Fire Department Jurisdiction or Leased”</a> table was downloaded from the DataSF | Open Data Portal and then geocoded into a point feature dataset. This feature includes both fire stations as well as other supporting facilities. In addition, the <a href="https://data.sfgov.org/Transportation/Temporary-Street-Closures-Map/98cv-qtqk">“Temporary Street Closures Map”</a> was exported from DataSF for street closures on 7/27/25.</p>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 1"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="img-fluid figure-img" alt="Figure 1"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure 1"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/StudyAreaMap.png" class="img-fluid figure-img" alt="Figure 1"></a></p>
 <figcaption>Figure 1</figcaption>
 </figure>
 </div>
@@ -269,19 +175,19 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>The service area network analysis type identifies the geographic region that can be reached within a given time or distance. This analysis used a time requirement with breaks at 1, 2, and 3 minutes. Time cutoffs were calculated going away form facilities since we are looking at the response times of emergency vehicles leaving the stations. Polygons were set to split where they meet (Figure 2). In order to calculate the time regions, the network must have speed limit information. Fire stations were added as Facilities Sub Layer (Figure 3) and street access restrictions to the Line Barriers sub layer (Figure 4).</p>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasSettings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure 2"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasSettings.png" class="img-fluid figure-img" alt="Figure 2"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasSettings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure 2"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasSettings.png" class="img-fluid figure-img" alt="Figure 2"></a></p>
 <figcaption>Figure 2</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AddFacilities.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure 3"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AddFacilities.png" class="img-fluid figure-img" alt="Figure 3"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AddFacilities.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure 3"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AddFacilities.png" class="img-fluid figure-img" alt="Figure 3"></a></p>
 <figcaption>Figure 3</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AddBarriers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure 4"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AddBarriers.png" class="img-fluid figure-img" alt="Figure 4"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AddBarriers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure 4"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AddBarriers.png" class="img-fluid figure-img" alt="Figure 4"></a></p>
 <figcaption>Figure 4</figcaption>
 </figure>
 </div>
@@ -289,13 +195,13 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>The best route network analysis minimizes either distance or time for the route of interest. The analysis accounts for road speed or mode speeds when set to measure the accumulated time. For this analysis, time was minimized. In order to allow for the Chief to start and stop at their residence, the “Preserve First &amp; Last Stop” option was used with the Fire Chief’s residence entered once as the first stop and once again as the last stop. (Figure 5) A separate layer was created from a selection of the fire stations in the north east quadrant and then added as stops. (Figure 6). Line barriers were added as in the previous method (Figure 4)</p>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/ChiefResidenceStop.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure 5"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ChiefResidenceStop.png" class="img-fluid figure-img" alt="Figure 5"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/ChiefResidenceStop.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure 5"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ChiefResidenceStop.png" class="img-fluid figure-img" alt="Figure 5"></a></p>
 <figcaption>Figure 5</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/StationStops.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure 6"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/StationStops.png" class="img-fluid figure-img" alt="Figure 6"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/StationStops.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure 6"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/StationStops.png" class="img-fluid figure-img" alt="Figure 6"></a></p>
 <figcaption>Figure 6</figcaption>
 </figure>
 </div>
@@ -303,19 +209,19 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>Optimal Location Analysis identifies the best site(s) for facilities based on criteria such as distance or travel time, demand, and constraints. For this analysis we want to minimize the drive time away from facilities. In order to do this the “Minimize Weighted Impedance” problem type was used (Figure 7). The existing equipment facility was added to the “Facilities” Sub Layer locations. The Default Value of “Required” was selected to insure the analysis included it in its calculations (Figure 8). The candidate sites were selected from areas with acceptable zoning and then also entered in the “Facilities” Sub Layer but with the Default Value of “Candidate”. Because we are looking to minimize the time from an equipment facility to a fire station, “Away from facilities” was used for the Direction and 2 for Facilities since we are only looking to add 1 additional facility. (Figure 9)</p>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/ProblemType.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure 7"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ProblemType.png" class="img-fluid figure-img" alt="Figure 7"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/ProblemType.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure 7"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ProblemType.png" class="img-fluid figure-img" alt="Figure 7"></a></p>
 <figcaption>Figure 7</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationFacility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure 8"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationFacility.png" class="img-fluid figure-img" alt="Figure 8"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationFacility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure 8"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationFacility.png" class="img-fluid figure-img" alt="Figure 8"></a></p>
 <figcaption>Figure 8</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationTravelSettings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure 9"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationTravelSettings.png" class="img-fluid figure-img" alt="Figure 9"></a></p>
+<p><a href="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationTravelSettings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure 9"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/AllocationTravelSettings.png" class="img-fluid figure-img" alt="Figure 9"></a></p>
 <figcaption>Figure 9</figcaption>
 </figure>
 </div>
@@ -323,13 +229,13 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <h3 style="margin-top:1em;" class="anchored">Results</h3>
 <span style="font-size: 18px;"><strong>Service Areas</strong></span>
 <p>The outcome shows the result of the analysis with the different colored polygons representing areas reached within 1 minute (purple), 2 minutes (green), and 3 minutes (yellow) While most of the limited access is located in the northern half of the city, most areas in the northern half are still within 2 minute service areas. The southern half of the city has significantly more area within the 3 minute service mark including some areas beyond 3 minutes despite having significantly less closures. Upon closer inspection it can be seen that the geography necessitates more dispersed roads that are more likely to wind around hills in addition to the stations being more spatially dispersed.</p>
-<a href="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/ServiceAreasMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Best Route</strong></span>
 <p>As a result of the San Francisco Marathon, Station #35 is blocked and will be unreachable on that date. It is therefore not included in the route and will need to be inspected on a different occasion. The remaining ten stations only have to contend with a few minor lengths of limited access. If the chief wants to be able to reach all stations for this round of site inspections, they will have to do so on another date.</p>
-<a href="Portfolio/VectorAnalysis/NetworkAnalysis/BestRouteMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/BestRouteMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/NetworkAnalysis/BestRouteMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/BestRouteMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Optimal Location</strong></span>
 <p>With this optimal location analysis, the newly sited equipment facility becomes the main location servicing the majority of stations. The old facility becomes the closest facility to only 5 stations. A more equal distribution is unfortunately limited by zoning which limited where the candidate sites could be located. There are some stations in the south that appear to be spatially closer to the old facility but the network analysis determined that the new facility would be closer as a function of time. This is most likely due to the selected candidate site’s location near a highway.</p>
-<a href="Portfolio/VectorAnalysis/NetworkAnalysis/OptimalLocationMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/OptimalLocationMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/NetworkAnalysis/OptimalLocationMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="Portfolio/VectorAnalysis/NetworkAnalysis/OptimalLocationMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Conclusion</h3>
 <p>While there were significant street closures for events, disruptions to service were kept to a minimal. This is likely due in part to intentional planning of activities to minimize their impact on emergency services. This is also a benefit of properly distributed stations. Because of the lopsided dependent station counts for the equipment facilities it may be more beneficial to simply move the equipment facility to the new candidate site instead of operating two facilities as the candidate site allows for significantly reduced supply lines. This can be confirmed by running the analysis again with the requirement for only 1 facility.</p>
 <p>One major limitation to this analysis is that it does not include traffic patterns which can vary depending on time of day or day of the week. The best route analysis and service area analysis would be most affect by this lack of information as the calculations where performed as a function of time and not distance and traffic would affect that outcome. The optimal location analysis would benefit from including average traffic pattern information as it is not attempting to establish the shortest supply lines at a particular point in time but rather on average. Emergency services also are not necessarily beholden to the typical constraints that civilian traffic is limited to and this was not accounted for. This analysis also did not distinguish between complete street closure and limited access. It is possible that access to certain areas and stations is not completely blocked but rather limited in lanes or to emergency vehicles only. Service areas also do not account for the fire boat component of station #35 which is not limited by the street network and can only access buildings on the coast.</p>
@@ -338,7 +244,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>“Optimizing Routes for Efficient Fleet Management.” Esri.com, ESRI, www.esri.com/training/catalog/5a1da3e0e79aee27e8839e8b/optimizing-routes-for-efficient-fleet-management/. Accessed 23 July 2025.</p>
 <p>“Temporary Street Closures Map | DataSF.” Sfgov.org, 25 July 2025, data.sfgov.org/Transportation/Temporary-Street-Closures-Map/98cv-qtqk. Accessed 27 July 2025.</p>
 </div>
-<div id="tabset-1-3" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="tabset-1-2" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <h2 style="margin-top:1em;" class="anchored">Siting Optimal Location for High Density Housing</h2>
 <h3 style="margin-top:1em;" class="anchored">Problem Statement</h3>
 <p>Like much of the rest of the nation, Tucson is suffering from a housing shortage. Tucson also suffers from low density with “high-density housing only allowed on 12 percent of properties in the city under current regulations” (Robbins) Tucson has been in the process of implementing multiple plans in an attempt to facilitate the development of infill and higher density housing including modifying zoning to allow for easier development of mixed use high density housing as in the <a href="https://corridors.tucsonaz.gov/">Community Corridors Tool</a>. In an effort to provide convenience to residents this analysis seeks to find suitable locations for high-density housing that;</p>
@@ -354,7 +260,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/SuitabilityAnalysis/DataMaps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure 1"><img src="Portfolio/VectorAnalysis/SuitabilityAnalysis/DataMaps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
+<p><a href="Portfolio/VectorAnalysis/SuitabilityAnalysis/DataMaps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure 1"><img src="Portfolio/VectorAnalysis/SuitabilityAnalysis/DataMaps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
 </figure>
 </div>
 <figcaption>Figure 1</figcaption>
@@ -372,10 +278,10 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <h3 style="margin-top:1em;" class="anchored">Results</h3>
 <span style="font-size: 18px;"><strong>Boolean Suitability Analysis</strong></span>
 <p>The Boolean analysis shows several areas throughout the city that would be suitable. Since it is not ranked, all areas shown were simply areas that met all given requirements and there is no preference given to any area that met the requirements. The biggest clusters are in downtown as well as the northside.</p>
-<a href="Portfolio/VectorAnalysis/SuitabilityAnalysis/BooleanMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="Portfolio/VectorAnalysis/SuitabilityAnalysis/BooleanMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/SuitabilityAnalysis/BooleanMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="Portfolio/VectorAnalysis/SuitabilityAnalysis/BooleanMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Ranked Suitability Analysis</strong></span>
 <p>This analysis identified very little area as “Highly Suitable” and most of it was in the downtown area. There was also a small section in the northside. There were a few other areas identified as suitable with most of that also being in the downtown area and a few other sections dispersed throught the core of the city.</p>
-<a href="Portfolio/VectorAnalysis/SuitabilityAnalysis/RankedMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="Portfolio/VectorAnalysis/SuitabilityAnalysis/RankedMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/SuitabilityAnalysis/RankedMap.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="Portfolio/VectorAnalysis/SuitabilityAnalysis/RankedMap.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Conclusion</h3>
 <p>Both analysis have selected the downtown area as an optimal area for development of high density housing. For those familiar with Tucson, this may seem counter intuitive as the downtown area is densely packed with buildings many of those being multiple story and high-rise buildings. Unfortunately, very few of those densely packed buildings actually have permanent residents. Since the downtown area is zoned for mixed use and has lots of access to public transportation as well as proximity to a market, it is a definitely a good candidate area. However, the downtown area is highly developed already with commercial and office buildings. Areas further from the city’s core may be better suited for development due to costs.</p>
 <p>While both methodologies identified similar areas in the downtown region and the northside, the Boolean analysis provided many more options. This would provide more flexibility which may be a better choice for interested stakeholders. However, due to the nature of the variables, neither analysis may be ideal on their own due to the limitations of the processes used.</p>
@@ -388,7 +294,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>“Original City Zoning - Open Data.” Tucsonaz.gov, 18 Oct.&nbsp;2023, gisdata.tucsonaz.gov/datasets/cotgis::original-city-zoning-open-data/about. Accessed 1 Aug.&nbsp;2025.</p>
 <p>Robbins, Natalie. “Tucson Needs 35k Housing Units to Meet Demand; Officials Hope Community Corridors Tool Is a Solution.” Tucsonsentinel.com, 20 Mar.&nbsp;2025, www.tucsonsentinel.com/local/report/032025_cct_zoning/tucson-needs-35k-housing-units-meet-demand-officials-hope-community-corridors-tool-solution/, http://www.tucsonsentinel.com/local/report/032025_cct_zoning/tucson-needs-35k-housing-units-meet-demand-officials-hope-community-corridors-tool-solution/. Accessed 1 Aug.&nbsp;2025.</p>
 </div>
-<div id="tabset-1-4" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="tabset-1-3" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <h2 style="margin-top:1em;" class="anchored">Determining Spatial Randomness of Plant Samples</h2>
 <h3 style="margin-top:1em;" class="anchored">Problem Statement</h3>
 <p>The California Vegetation Classification and Mapping Program (VegCAMP) seeks to establish a map of California’s vegetation at a high resolution. VegCAMP does not have a standard for sample site allocation. Sampling sites are a combination of sites allocated ahead of time and sites of opportunity. For allocating sample sites, it has employed Generalized Random Tessellation Stratified (GTRS) survey design and a gradient-directed transect (gradsect) approach. The Generalized Random Tesselation Stratified survey design aims to spatially balance sample sites. (VegCAMP Background)</p>
@@ -397,7 +303,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <h3 style="margin-top:1em;" class="anchored">Data</h3>
 <p>This study area is a roughly 30 square kilometer, rectangular area, that encompasses Mount Tamalpais, a portion of Mount Tamalpais state park, as well as most of Muir Woods National Monument. These features utilized are located on the northern peninsula of the San Francisco Bay in Northern California which is located across the Golden Gate Strait from the City and County of San Francisco. It is a point feature class with attribute information regarding the plants sampled and various other information such as methodologies used. The only attribute used for this analysis is location. The point feature was clipped to the study area.</p>
 <p>The dataset used for this analysis is the <a href="https://gis.data.ca.gov/maps/b3e92f99881b4b03bab0ef8d74c229e9/about">Vegetation Survey Points - CDFW [ds1020]</a> downloaded from the State of California’s State Geoportal. This dataset is published by the California Department of Fish and Wildlife. It is a point feature class.</p>
-<a href="Portfolio/VectorAnalysis/PointPattern/StudyArea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="Portfolio/VectorAnalysis/PointPattern/StudyArea.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/PointPattern/StudyArea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="Portfolio/VectorAnalysis/PointPattern/StudyArea.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Methods</h3>
 <p>These analyses use a Natural Earth projection which is compromised of a pseudocylindrical projection. This was done to quickly and easily mimic a Cartesian plane with no need for tweaking parameters. However, because this is a compromise pseudocylindrical projection, distances are distorted. A conformal projection with parameters tweaked to mimic a Cartesian plane would be ideal.</p>
 <p>There are 168 total sample points within the study area. Each point represents an area of varying sizes where the alliance-level foliage was cataloged. There are also additional attributes describing various aspects like land ownership, soil types, and sampling method employed. (VegCAMP Background)</p>
@@ -418,7 +324,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/PointPattern/quadratsfrequenciestable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figure 1"><img src="Portfolio/VectorAnalysis/PointPattern/quadratsfrequenciestable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
+<p><a href="Portfolio/VectorAnalysis/PointPattern/quadratsfrequenciestable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure 1"><img src="Portfolio/VectorAnalysis/PointPattern/quadratsfrequenciestable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
 </figure>
 </div>
 <figcaption>Figure 1</figcaption>
@@ -428,7 +334,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Figure 2"><img src="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 2"></a></p>
+<p><a href="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure 2"><img src="Portfolio/VectorAnalysis/PointPattern/quadratstable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 2"></a></p>
 </figure>
 </div>
 <figcaption>Figure 2</figcaption>
@@ -440,7 +346,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Figure 3"><img src="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 3"></a></p>
+<p><a href="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure 3"><img src="Portfolio/VectorAnalysis/PointPattern/ANNSummary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 3"></a></p>
 </figure>
 </div>
 <figcaption>Figure 3</figcaption>
@@ -452,7 +358,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32" title="Figure 4"><img src="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 4"></a></p>
+<p><a href="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure 4"><img src="Portfolio/VectorAnalysis/PointPattern/KFunction.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 4"></a></p>
 </figure>
 </div>
 <figcaption>Figure 4</figcaption>
@@ -468,14 +374,14 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>“VegCAMP Background.” Wildlife.ca.gov, wildlife.ca.gov/Data/VegCAMP/Background. Accessed 8 Aug.&nbsp;2025.</p>
 <p>“Vegetation Survey Points - CDFW [Ds1020].” Ca.gov, 2020, gis.data.ca.gov/maps/b3e92f99881b4b03bab0ef8d74c229e9/about. Accessed 8 Aug.&nbsp;2025.</p>
 </div>
-<div id="tabset-1-5" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div id="tabset-1-4" class="tab-pane html-fill-item html-fill-container" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <h2 style="margin-top:1em;" class="anchored">Street Tree Canopy Equity in Portland Oregon</h2>
 <h3 style="margin-top:1em;" class="anchored">Problem Statement</h3>
 <p>Despite it’s recent disappearance from government websites such as EPA.gov, the issue of tree canopy disparity has been well established by numerous studies such as (McDonald, et. al 2021). As quantified in that study, there is often significantly less tree canopy coverage in low income areas versus their wealthier counterparts. There are also disparities between those neighborhoods primarily comprised of ethnic minorities and those of predominantly white residents. This in turn has an impact on the health of residents as well as intensifying the heat island effect in areas with low tree canopy. This analyses seeks to determine if the tree canopy coverage in the City of Portland, Oregon is equitably distributed.</p>
 <h3 style="margin-top:1em;" class="anchored">Data</h3>
 <p>The study area for this analysis is the city limits of Portland, Oregon. Portland is located along the Columbia and Willmette Rivers. It is located on the northern border of Oregon across the Columbia River from Vancouver Washington.</p>
 <p>The data for this analysis consists of the <a href="https://gis-pdx.opendata.arcgis.com/datasets/PDX::street-tree-inventory-active-records/about">“Street Tree Inventory - Ative Records”</a> dataset downloaded from the PortlandMaps - Open Data site. It also includes the Portland City Limits feature extracted from the <a href="https://gis-pdx.opendata.arcgis.com/datasets/PDX::city-boundaries/about">“City Boundries”</a> dataset also downloaded from the PortlandMaps - Open Data site. Two Census datasets were downloaded from the ArcGIS Online Portal, the <a href="https://www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6">“USA 2020 Census Population Characteristics”</a> —which contains demographic information— and the <a href="https://www.arcgis.com/home/item.html?id=8f6b71915a144f60a3a6ca72b57cdb56">“USA Esri Demographics (Latest)</a> layer —which contains income information.</p>
-<a href="Portfolio/VectorAnalysis/SpatialRegression/TreeDensity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="Portfolio/VectorAnalysis/SpatialRegression/TreeDensity.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/SpatialRegression/TreeDensity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="Portfolio/VectorAnalysis/SpatialRegression/TreeDensity.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Methods</h3>
 <p>There were minimal demands for this analysis in determining a projection. Because we are attempting to sum the amounts of points in a polygon, and are calculations have already been predetermined, the only need is for accuracy of shape. Thus, the Oregon State Plane North projection was used which is Lambert conformal conic. The 2011 update to the 1983 North American Datum was used as the datum.</p>
 <p>The outcome we are interested in is tree density therefore trees per square kilometer is the dependent variable. In order to establish this variable trees within each census tract were summed and then divided by the area of the census tract. Explanatory variables utilized in exploratory analysis included Population Density (P001_calc_pctPopDensity), Percent of population who is white (P005_calc_pct0003), Ratio of males to females (P012_calc_pctRatio), Median age of total population (P0130001), Median Household Income (MEDHINC_CY), and Median Home Value (MEDVAL_CY). Variables that were obviously colinear were not included e.g.&nbsp;Median age of total population was included but percent of population over 65 was not.</p>
@@ -489,7 +395,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/SpatialRegression/ExploratorySearch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34" title="Figure 1"><img src="Portfolio/VectorAnalysis/SpatialRegression/ExploratorySearch.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
+<p><a href="Portfolio/VectorAnalysis/SpatialRegression/ExploratorySearch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure 1"><img src="Portfolio/VectorAnalysis/SpatialRegression/ExploratorySearch.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
 </figure>
 </div>
 <figcaption>Figure 1</figcaption>
@@ -502,7 +408,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/SpatialRegression/ExploratoryTable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35" title="Figure 2"><img src="Portfolio/VectorAnalysis/SpatialRegression/ExploratoryTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 2"></a></p>
+<p><a href="Portfolio/VectorAnalysis/SpatialRegression/ExploratoryTable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Figure 2"><img src="Portfolio/VectorAnalysis/SpatialRegression/ExploratoryTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 2"></a></p>
 </figure>
 </div>
 <figcaption>Figure 2</figcaption>
@@ -513,7 +419,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/SpatialRegression/OLSTable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36" title="Figure 3"><img src="Portfolio/VectorAnalysis/SpatialRegression/OLSTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 3"></a></p>
+<p><a href="Portfolio/VectorAnalysis/SpatialRegression/OLSTable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure 3"><img src="Portfolio/VectorAnalysis/SpatialRegression/OLSTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 3"></a></p>
 </figure>
 </div>
 <figcaption>Figure 3</figcaption>
@@ -524,7 +430,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/SpatialRegression/OLSDiagnostic.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37" title="Figure 4"><img src="Portfolio/VectorAnalysis/SpatialRegression/OLSDiagnostic.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 4"></a></p>
+<p><a href="Portfolio/VectorAnalysis/SpatialRegression/OLSDiagnostic.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25" title="Figure 4"><img src="Portfolio/VectorAnalysis/SpatialRegression/OLSDiagnostic.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 4"></a></p>
 </figure>
 </div>
 <figcaption>Figure 4</figcaption>
@@ -534,7 +440,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/SpatialRegression/MoransSummary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38" title="Figure 5"><img src="Portfolio/VectorAnalysis/SpatialRegression/MoransSummary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 5"></a></p>
+<p><a href="Portfolio/VectorAnalysis/SpatialRegression/MoransSummary.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figure 5"><img src="Portfolio/VectorAnalysis/SpatialRegression/MoransSummary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 5"></a></p>
 </figure>
 </div>
 <figcaption>Figure 5</figcaption>
@@ -546,16 +452,16 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/VectorAnalysis/SpatialRegression/GWRTable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39" title="Figure 6"><img src="Portfolio/VectorAnalysis/SpatialRegression/GWRTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 6"></a></p>
+<p><a href="Portfolio/VectorAnalysis/SpatialRegression/GWRTable.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27" title="Figure 6"><img src="Portfolio/VectorAnalysis/SpatialRegression/GWRTable.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 6"></a></p>
 </figure>
 </div>
 <figcaption>Figure 6</figcaption>
 </figure>
 </div>
 <p>The Median Age results map shows that there are two regions of strong positive correlation (Purple) which means there is more tree canopy cover and a higher median age in those areas. Interestingly there are also som regions in the southwest of the city were the tree canopy decreases where there is a higher median age. (Dark Green)</p>
-<a href="Portfolio/VectorAnalysis/SpatialRegression/GWRMedianAge.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40"><img src="Portfolio/VectorAnalysis/SpatialRegression/GWRMedianAge.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/SpatialRegression/GWRMedianAge.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="Portfolio/VectorAnalysis/SpatialRegression/GWRMedianAge.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <p>There is a core through the center of the city where there is a positive correlation between the percent of the population that is white and the density of tree canopy. This effect is particularly strong in the south central part of the city (Dark Purple). There are minimal areas where this effect is inverted.</p>
-<a href="Portfolio/VectorAnalysis/SpatialRegression/GWREthnicity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-41"><img src="Portfolio/VectorAnalysis/SpatialRegression/GWREthnicity.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/VectorAnalysis/SpatialRegression/GWREthnicity.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="Portfolio/VectorAnalysis/SpatialRegression/GWREthnicity.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Conclusion</h3>
 <p>This analysis shows that the City of Portland does have opportunity for improvement for tree canopy equity but surprisingly the city is fairly equitable between income groups. There was however still racial disparity with a strong correlation through much of the city where census tracts that consisted of a higher percentage of white residents had more tree canopy. Perhaps the most surprising finding though was the some of the strongest correlation was with the median age of the Census Tract.</p>
 <p>The GWR was a far superior model as evidenced by nearly every statistical measure. The effect could also be seen visually on the maps as the clustering is very evident. While the effect of the density of population was significant in the results. The strength of the correlation was minimal in both the OLS and GWR.</p>
@@ -588,7 +494,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <h3 style="margin-top:1em;" class="anchored">Data</h3>
 <p>The area used to determine the location of the drainage point will comprise Tucson, Arizona and surrounding suburbs. The analysis uses Shuttle Radar Topography Mission (SRTM) raster data, which make up Digital Elevation Models (DEMs).</p>
 <p>Name of dataset: Shuttle Radar Topography Mission Void Filled<br> Publication date: 2012/10/01<br> Date updated: 2025/03/10<br> Owner: US Geological Survey (USGS) Earth Resources Observation &amp; Science (EROS)<br> <a href="https://earthexplorer.usgs.gov/">Click here to go to the repository</a><br> Spatial Reference:<br> Geographic Coordinate System: WGS 1984<br> Projection: Not projected<br> Horizontal datum: D WGS 1984<br> WKID: 4326<br> Data Type: raster<br></p>
-<a href="Portfolio/RasterAnalysis/StudyArea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42"><img src="Portfolio/RasterAnalysis/StudyArea.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/RasterAnalysis/StudyArea.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="Portfolio/RasterAnalysis/StudyArea.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Methodology</h3>
 <span style="font-size: 18px;"><strong>ArcGIS Pro Model</strong></span>
 <p>ArcGIS Pro Model Builder allows the user to create a series of connected geoprocessing tools through a graphic user interface. This can help plan out complicated processing as well as allowing for repeated use of the same steps with the same settings. Figure 1 represents the workflow used for this analysis.</p>
@@ -596,7 +502,7 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center html-fill-item html-fill-container">
 <figure class="figure">
-<p><a href="Portfolio/Model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-43" title="Figure 1"><img src="Portfolio/Model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
+<p><a href="Portfolio/Model.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Figure 1"><img src="Portfolio/Model.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Figure 1"></a></p>
 </figure>
 </div>
 <figcaption>Figure 1</figcaption>
@@ -606,22 +512,22 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 <p>The SRTM rasters were first projected into the USA Contiguous Albers Equal Area Conic using the 1983 North American Datum with 2011 update. This was done to preserve area as this analysis will determine the total area of the drainage basin. The newly projected rasters can then be combined using the Mosaic To New Raster (Data Management) tool. After they have been combined into a single new raster, voids were filled using a raster calculator function. This function identified cells with NULL values and used focal statics to create a value based on a circle of cells of with a radius of 7 cells. The radius was identified through experimentation as the minimum necessary distance to fill all voids.</p>
 <span style="font-size: 18px;"><strong>Elevation of Tucson Area</strong></span>
 <p>After combining and void filling, the DEM can be clipped to the area of interest.</p>
-<a href="Portfolio/RasterAnalysis/SRTM_Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-44"><img src="Portfolio/RasterAnalysis/SRTM_Map.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/RasterAnalysis/SRTM_Map.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="Portfolio/RasterAnalysis/SRTM_Map.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Sinks</strong></span>
 <p>A raw DEM contains various cells that have erroneous values. This means that in a flow direction analysis, there could be areas in which water flows into an erroneous cell instead of flowing as part of the rest of the drainage basin. The Fill (Spatial Analyst) tool can be used to rectify the sinks. This works by raising the value of cell that is lower than the surrounding cells up to the value of it’s surrounding cells.</p>
-<a href="Portfolio/RasterAnalysis/Sinks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-45"><img src="Portfolio/RasterAnalysis/Sinks.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/RasterAnalysis/Sinks.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="Portfolio/RasterAnalysis/Sinks.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Flow Direction</strong></span>
 <p>While flow direction is a necessary step for identifying sinks, identifying sinks is not a necessary step in determining the drainage features. Instead, the Fill (Spatial Analyst) tool can be used on the DEM to correct sinks. Then, the Flow Direction (Spatial Analyst) tool processes the direction in which water will travel for each cell. This analysis used 8 directions (D8).</p>
-<a href="Portfolio/RasterAnalysis/FlowDirection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-46"><img src="Portfolio/RasterAnalysis/FlowDirection.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/RasterAnalysis/FlowDirection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34"><img src="Portfolio/RasterAnalysis/FlowDirection.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Flow Accumulation Drainage Features</strong></span>
-<p>With an established Flow Direction raster, we can now analyse how much accumulated water flow into each cell. Using the Flow Accumulation (Spatial Analyst) tool, each cell is assigned a value that counts the cells that flow into it from higher up in the drainage basin. To identify major water features, a floor of 125,000 cells of flow was used. For a clearer picture of the drainage features Derive Stream As Line (Spatial Analyst) tool can be used. For this analysis the Stahler ID method of identifying features was used which establishes in order in which a higher value is assigned to segments that have lower value segments flowing into it. Once the accumulation has been calculated, the cell with the highest value can be identified. This is the drainage point for the area of interest.</p>
-<a href="Portfolio/RasterAnalysis/DrainageFeatures.png" class="lightbox" data-gallery="quarto-lightbox-gallery-47"><img src="Portfolio/RasterAnalysis/DrainageFeatures.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<p>With an established Flow Direction raster, we can now analyse how much accumulated water flows into each cell. Using the Flow Accumulation (Spatial Analyst) tool, each cell is assigned a value that counts the cells that flow into it from higher up in the drainage basin. To identify major water features, a floor of 125,000 cells of flow was used. For a clearer picture of the drainage features, Derive Stream As Line (Spatial Analyst) tool can be used. For this analysis the Stahler ID method of identifying features was used which establishes in order in which a higher value is assigned to segments that have lower value segments flowing into it. Once the accumulation has been calculated, the cell with the highest value can be identified. This is the drainage point for the area of interest.</p>
+<a href="Portfolio/RasterAnalysis/DrainageFeatures.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35"><img src="Portfolio/RasterAnalysis/DrainageFeatures.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Tucson Area Watersheds</strong></span>
 <p>Using a calculation that extracts cells that have at least 125,000 cells of accumulated flow along with flow direction, the watersheds in the area of interest can be identified.</p>
-<a href="Portfolio/RasterAnalysis/Watersheds.png" class="lightbox" data-gallery="quarto-lightbox-gallery-48"><img src="Portfolio/RasterAnalysis/Watersheds.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/RasterAnalysis/Watersheds.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="Portfolio/RasterAnalysis/Watersheds.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <span style="font-size: 18px;"><strong>Complete Drainage Basin</strong></span>
 <p>To be able to calculate the area of the entire drainage basin for the drainage (pour) point, the analysis must extend beyond the area of interest. Using the same process for identifying the watersheds for the drainage features of the area of interest, we can repeat the analysis using the entire combined raster DEM for all of South Eastern Arizona and the pour point.</p>
-<a href="Portfolio/RasterAnalysis/DrainageBasin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-49"><img src="Portfolio/RasterAnalysis/DrainageBasin.png" class="img-fluid quarto-figure quarto-figure-center"></a>
+<a href="Portfolio/RasterAnalysis/DrainageBasin.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="Portfolio/RasterAnalysis/DrainageBasin.png" class="img-fluid quarto-figure quarto-figure-center"></a>
 <h3 style="margin-top:1em;" class="anchored">Conclusions</h3>
 <p>The attribute table of the drainage basin raster contains the count of cells that make up the entire drainage basin. A simple calculation using the dimensions of each cell (30 meters to a side) and the total cells, gives the total area of the drainage basin.</p>
 <span class="math display">\[
@@ -630,11 +536,10 @@ Discuss any limitations in your analysis and how they affect your conclusions. (
 \]</span>
 <p>With a total cell count of 8,874,509, the basin is approximately 7,987 km^2 in size. This is a considerable area contributing to the flow of water exiting the Tucson area from Marana. While these drainage features are usually dry, heavy or prolonged precipitation within the drainage basin can result in large flows of water in the drainage features of interest even if there is no precipitation within our study area.</p>
 <h3 style="margin-top:1em;" class="anchored">Limitations</h3>
-<p>The SRTM rasters retrieved from USGS only extend partially into Mexico. This limits the extent of the basin that can be identified as the basin appears to extend beyond those limits. The SRTM data only offers lower resolution rasters for the segments extending into Mexico. This limits a complete analysis of the study area extended into Mexico to lower resolution or resampled SRTM rasters for the areas used in this analysis. This analysis does not comprise the entire Santa Cruz River Basin as the pour point used for our analysis was where the water drained out of our area of interest. To determine the entire Santa Cruz River Basin, a pour point where the Santa Cruz River ends should be used.</p>
-<p>In some cases, sinks can be naturally occurring features. This analysis did not identify nor distinguish natural sinks from artificial sinks created for erroneous data.</p>
+<p>The SRTM rasters retrieved from USGS only extend partially into Mexico. This limits the extent of the basin that can be identified as the basin appears to extend beyond those limits. The SRTM data only offers lower resolution rasters for the segments extending further into Mexico. This limits a complete analysis of the study area extended into Mexico to lower resolution or resampled SRTM rasters for the areas used in this analysis. This analysis does not comprise the entire Santa Cruz River Basin as the pour point used for our analysis was where the water drained out of our area of interest. To determine the entire Santa Cruz River Basin, a pour point where the Santa Cruz River ends should be used.</p>
+<p>In some cases, sinks can be naturally occurring features. This analysis did not identify nor distinguish natural sinks from artificial sinks created for erroneous data and all sinks were filled.</p>
 <h3 style="margin-top:1em;" class="anchored">Sources</h3>
 <p>U.S. Geological Survey. (2000). Shuttle Radar Topography Mission (SRTM) 1 Arc-Second Global. Retrieved July 1, 2025, from USGS EarthExplorer: https://earthexplorer.usgs.gov/</p>
-<p>Esri. (2025). World Topographic Map [Basemap]. Sources: Esri, HERE, Garmin, FAO, NOAA, USGS, © OpenStreetMap contributors, and the GIS user community. Retrieved from https://www.arcgis.com</p>
 </div>
 <bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
     <template>Expand</template>
