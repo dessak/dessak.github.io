@@ -24,6 +24,6 @@ a {
 .panel-tabset figure figcaption,
 .qmd-content figure figcaption {
   text-align: center !important;
-  margin-top: 0.5em;
+  /*margin-top: 0.5em;*/
   font-style: italic;
 }

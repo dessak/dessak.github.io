@@ -4,6 +4,102 @@ format: dashboard
 page-layout: full
 css: styles.css
 ---
+
+# Cartography
+  
+```{=html}
+<h3 style="margin-top:1em;">Problem Statement</h3>
+```
+  
+There have been numerous studies that have demonstrated disparities between how different demographics are exposed to various pollutants. This cursory analysis seeks to investigate if any correlation between racial demographics and exposure to inventoried air pollution can be identified in the County of Los Angeles.
+  
+```{=html}
+<h3 style="margin-top:1em;">Data</h3>
+```
+  
+This analysis requires information about inventoried pollution in the County of Los Angeles as well as demographic information. It will encompass the mainland county and exclude the Channel Islands that are a part of the County of Los Angeles.
+  
+Name of dataset: TRI Basic Data Files: Calendar Years 1987 - Present<br>
+Publication date: Unknown<br>
+Date updated: 2025/09/17<br>
+Owner: Environmental Protection Agency (EPA) Toxic Release Inventory (TRI) Program<br>
+[Click here to go to the repository](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present)<br>
+Spatial Reference: N/A<br>
+Geographic Coordinate System: WGS 1984<br>
+Projection: N/A <br>
+Horizontal datum: N/A<br>
+WKID: N/A<br>
+Data Type: CSV<br>
+  
+Name of dataset: U.S. Census Bureau, 2019-2023 American Community Survey 5-Year Estimates)<br>
+Publication date: Unknown<br>
+Date updated: Unkown<br>
+Owner: United States Census Bureau<br>
+[Click here to go to the repository](https://www.census.gov/programs-surveys/acs/data.htmlt)<br>
+Spatial Reference: Geographic<br>
+Geographic Coordinate System: WGS 1984<br>
+Projection: N/A <br>
+Horizontal datum: N/A<br>
+WKID: N/A<br>
+Data Type: CSV<br>
+
+![](Portfolio/Cartography/FinalReferenceMap.png){.lightbox fig-align="center"}
+
+  
+```{=html}
+<h3 style="margin-top:1em;">Methodology</h3>
+```
+  
+
+[**Pre-processing**]{style="font-size: 18px;"}
+  
+
+  
+[**Graduated Symbol Visualization of Air Pollution**]{style="font-size: 18px;"}
+  
+
+  
+![](Portfolio/Cartography/FinalGraduatedSymbol.png){.lightbox fig-align="center"}
+  
+[**Choropleth visualization of Racial Demographics**]{style="font-size: 18px;"}
+  
+
+  
+![](Portfolio/Cartography/FinalChoropleth.png){.lightbox fig-align="center"}
+  
+
+[**Bi-variate Analysis**]{style="font-size: 18px;"}
+
+
+
+![](Portfolio/Cartography/FinalBivariate.jpg){.lightbox fig-align="center"}
+
+[**Tableau Dashboard**]{style="font-size: 18px;"}
+
+```{=html}  
+<div class='tableauPlaceholder' id='viz1760606044196' style='position: relative'><noscript><a href='#'><img alt='County of Los Angeles ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Po&#47;PollutionandRaceinLACounty&#47;CountyofLosAngeles&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PollutionandRaceinLACounty&#47;CountyofLosAngeles' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Po&#47;PollutionandRaceinLACounty&#47;CountyofLosAngeles&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1760606044196');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.minWidth='1024px';vizElement.style.maxWidth='1124px';vizElement.style.width='100%';vizElement.style.minHeight='795px';vizElement.style.maxHeight='895px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1227px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+```
+
+
+
+```{=html}
+<h3 style="margin-top:1em;">Conclusions</h3>
+```
+  
+
+  
+```{=html}
+<h3 style="margin-top:1em;">Limitations</h3>
+```
+  
+
+  
+```{=html}
+<h3 style="margin-top:1em;">Sources</h3>
+```
+  
+
+
 # Vector Analysis
 
 ::: {.panel-tabset}
@@ -40,13 +136,6 @@ What is the highest population density in the city?
 Which centroids have a larger ratio of women than men?
   
 
-[**Combined Joins and Queries**]{style="font-size: 18px;"}    
-  
-What Ward has the largest population? (Spatial Join & Attribute)
-  
-Of the census tracts that intersect the city but whose centroids lie outside the city, which one has the largest population?
-  
-
 ```{=html}
 <h3 style="margin-top:1em;">Data</h3>
 ```
@@ -56,7 +145,7 @@ Of the census tracts that intersect the city but whose centroids lie outside the
 The study area is comprised of the city limits for Tucson, Arizona. Tucson is located in Eastern Pima County which is located in Southern Arizona. 
   
 
-The data used for this project consists of  the ["Jurisdicitonal Boundries"](https://gisopendata.pima.gov/datasets/PimaMaps::jurisdictional-boundaries/about) dataset from the Pima County Geospatial Data Portal as well as the ["City of Tucson Ward Boundaries"](https://gisdata.tucsonaz.gov/datasets/cotgis::city-of-tucson-ward-boundaries/about) dataset from the CIty of Tucson Open Data portal. Census data was obtained from the ArcGIS Online Portal from the ["USA 2020 Census Population Characteristics"](https://www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6) layer.
+The data used for this project consists of  the ["Jurisdicitonal Boundries"](https://gisopendata.pima.gov/datasets/PimaMaps::jurisdictional-boundaries/about) dataset from the Pima County Geospatial Data Portal as well as the ["City of Tucson Ward Boundaries"](https://gisdata.tucsonaz.gov/datasets/cotgis::city-of-tucson-ward-boundaries/about) dataset from the City of Tucson Open Data portal. Census data was obtained from the ArcGIS Online Portal from the ["USA 2020 Census Population Characteristics"](https://www.arcgis.com/home/item.html?id=ebeb65deb5c14f4d8849fd68944b7ee6) layer.
 
   
 ![](Portfolio/VectorAnalysis/QueriesJoins/StudyArea.png){.lightbox} 
@@ -77,11 +166,8 @@ To select the Census tracts that intersect with the City of Tucson, a spatial qu
 
   
 ![Figure 1](Portfolio/VectorAnalysis/QueriesJoins/CityLimitsTract.png){.lightbox} 
-
   
-
 Once the intersecting tracts have been exported to a new layer and converted to centroids we can select the centroids that fall within the city limits. The Select Layer By Location tool is used again with Centroids as the Input Features and the City Limits layer as the Selecting Features but this time the relationship chosen is "Within" to select only the centroids that lie within the city limits. (Figure 2)
-
   
 ![Figure 2](Portfolio/VectorAnalysis/QueriesJoins/SelectCentroids.png){.lightbox} 
   
@@ -92,15 +178,13 @@ In order to get the total population of centroids located within Tucson, we must
   
 ![Figure 3](Portfolio/VectorAnalysis/QueriesJoins/JoinPopCity.png){.lightbox}
   
-The same process can be used to find the total population of each ward. In this case, the summed population for each ward is added under the the summed population attribute and the different totals are available in each ward's respective line in the attribute table. (Figure 4)
+The same process can be used to find the total population of each ward. In this case, the summed population for each ward is added under the the summed population attribute. (Figure 4)
   
 ![Figure 4](Portfolio/VectorAnalysis/QueriesJoins/JoinWardPop.png){.lightbox}
   
-
-
 Attribute Queries  
   
-In order to find which centroid has the highest population density we can use the Select By Attributes tool This tool does not offer the ability to find a SQL "MAX" query from the graphic user interface but it can be done using the SQL Editor option in the tool (Figure 5). The will select the centroid in the attribute table and we can see what the density is.
+Once we have completed our spatial joins and queries, we can perform attribute queries on the previously processed data. In order to find which centroid has the highest population density we can use the Select By Attributes tool. This tool does not offer the ability to find a SQL "MAX" query from the graphic user interface but it can be done using the SQL Editor option in the tool (Figure 5). This will select the centroid in the attribute table and we can see what the density is.
   
 ![Figure 5](Portfolio/VectorAnalysis/QueriesJoins/SelectDens.png){.lightbox} 
   
@@ -108,10 +192,6 @@ Finding the centroids that have a higher ratio of female residents is much simpl
   
 ![Figure 6](Portfolio/VectorAnalysis/QueriesJoins/SelectRatio.png){.lightbox} 
   
-Combination  
-  
-Describe all the steps taken to answer your questions. (1 paragraph, <100 words)   
-State your assumptions and explain why. (1 - 2 paragraphs, <200 words)
 
 ```{=html}
 <h3 style="margin-top:1em;">Results</h3>
@@ -119,13 +199,11 @@ State your assumptions and explain why. (1 - 2 paragraphs, <200 words)
 
 
 
-  
-Describe your results. (1-2 paragraph, <200 words)  
-Include any tables or maps that help explain your results.  
+
 Spatial Queries  
-
   
-
+Census tracts do not often coincide with political boundaries. In this case we can see that the census tracts that intersect to city to the south and to the east are particularly large. Most tracts along the border with the city appear to be mostly outside the city however there are some that are indeterminate. The centroids that fall within or without the city are much easier to adentify with our attribute query.
+  
 ![](Portfolio/VectorAnalysis/QueriesJoins/TractIntersect.png){.lightbox}
   
 ![](Portfolio/VectorAnalysis/QueriesJoins/Centroids.png){.lightbox}
@@ -885,7 +963,7 @@ Data Type: raster<br>
 
 ArcGIS Pro Model Builder allows the user to create a series of connected geoprocessing tools through a graphic user interface. This can help plan out complicated processing as well as allowing for repeated use of the same steps with the same settings. Figure 1 represents the workflow used for this analysis.
 
-![Figure 1](Portfolio/Model.png){.lightbox fig-align="center"}
+![Figure 1](Portfolio/RasterAnalysis/Model.png){.lightbox fig-align="center"}
   
 [**Pre-processing**]{style="font-size: 18px;"}
   
