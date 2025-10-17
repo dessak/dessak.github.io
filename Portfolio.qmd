@@ -11,7 +11,6 @@ css: styles.css
 <h3 style="margin-top:1em;">Problem Statement</h3>
 ```
   
-(Page Under Construction)
 
 There have been numerous studies that have demonstrated disparities between how different demographics are exposed to various pollutants. This cursory analysis seeks to investigate if any correlation between racial demographics and exposure to inventoried air pollution can be identified in the County of Los Angeles.
   
@@ -26,11 +25,11 @@ Publication date: Unknown<br>
 Date updated: 2025/09/17<br>
 Owner: Environmental Protection Agency (EPA) Toxic Release Inventory (TRI) Program<br>
 [Click here to go to the repository](https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present)<br>
-Spatial Reference: N/A<br>
+Spatial Reference:<br>
 Geographic Coordinate System: WGS 1984<br>
-Projection: N/A <br>
-Horizontal datum: N/A<br>
-WKID: N/A<br>
+Projection: Not projected <br>
+Horizontal datum:<br>
+WKID:<br>
 Data Type: CSV<br>
   
 Name of dataset: U.S. Census Bureau, 2019-2023 American Community Survey 5-Year Estimates)<br>
@@ -38,11 +37,11 @@ Publication date: Unknown<br>
 Date updated: Unkown<br>
 Owner: United States Census Bureau<br>
 [Click here to go to the repository](https://www.census.gov/programs-surveys/acs/data.htmlt)<br>
-Spatial Reference: Geographic<br>
+Spatial Reference:<br>
 Geographic Coordinate System: WGS 1984<br>
 Projection: N/A <br>
-Horizontal datum: N/A<br>
-WKID: N/A<br>
+Horizontal datum:<br>
+WKID:<br>
 Data Type: CSV<br>
 
 ![](Portfolio/Cartography/FinalReferenceMap.png){.lightbox fig-align="center"}
@@ -55,24 +54,28 @@ Data Type: CSV<br>
 
 [**Pre-processing**]{style="font-size: 18px;"}
   
-
+The TRI table was preprocessed in python using pandas to renamed column headers to conform to ArcGIS's naming requirements. Unnecessary columns were removed. Tables were imported into ArcGIS and converted into feature layers.
   
 [**Graduated Symbol Visualization of Air Pollution**]{style="font-size: 18px;"}
   
-
+The inventoried air pollution escape and stack values were summued together for each site and then represented with graduated symbols.
   
 ![](Portfolio/Cartography/FinalGraduatedSymbol.png){.lightbox fig-align="center"}
   
 [**Choropleth visualization of Racial Demographics**]{style="font-size: 18px;"}
   
-
+The percentage of people not identifying as "white" on the ACS racial demographic question was calculated using the following formula:
+  
+$$
+(1 - \frac{\text{White Population}}{\text{Total Population}}) \times 100
+$$
   
 ![](Portfolio/Cartography/FinalChoropleth.png){.lightbox fig-align="center"}
   
 
 [**Bi-variate Analysis**]{style="font-size: 18px;"}
 
-
+EPA inventory sites were given a 1km buffer to more accurately represent affected area. The proportion of the buffer located within a tract gave the proportion of total pollution to include in the sum of pollution for each tract. Many of the largest polluters were located in unpopulated tracts.
 
 ![](Portfolio/Cartography/FinalBivariate.jpg){.lightbox fig-align="center"}
 
@@ -88,19 +91,22 @@ Data Type: CSV<br>
 <h3 style="margin-top:1em;">Conclusions</h3>
 ```
   
-
+There was no apparent correlation found between total pollution and racial demographics. However, there does appear to be a larger quantity of inventory sites in tracts with higher minority population.
   
 ```{=html}
 <h3 style="margin-top:1em;">Limitations</h3>
 ```
   
+This analysis was limited to inventoried air pollution and does not include air pollution from other sources such as vehicular exhaust. Analysis of prevailing winds would help more accurately determine areas affect by each inventory site. Block level demographic data would provide more accurate analysis than the tract level data used in this analysis. This analysis also did not distinguish between hispanic white and non-Hispanic white. Including hispanic white in the minority calculations may change the results.
 
   
 ```{=html}
 <h3 style="margin-top:1em;">Sources</h3>
 ```
   
+US Census Bureau. “American Community Survey Data.” Census.gov, www.census.gov/programs-surveys/acs/data.html. Accessed Sept. 2025.
 
+US EPA, OCSPP. “TRI Basic Data Files: Calendar Years 1987- Present.” Www.epa.gov, www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present. Accessed Sept. 2025.
 
 # Vector Analysis
 
