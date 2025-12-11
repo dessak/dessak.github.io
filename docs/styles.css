@@ -27,3 +27,8 @@ a {
   /*margin-top: 0.5em;*/
   font-style: italic;
 }
+
+/* Only hide the first line of panels with the StoryMap class */
+.qtd-panel.storymap > pre:first-child {
+  display: none;
+}
