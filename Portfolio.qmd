@@ -5,6 +5,304 @@ page-layout: full
 css: styles.css
 ---
 
+# Open Source GIS
+
+```{=html}
+<h2>Introduction to QGIS</h2>
+```   
+**Student:** Dessa Keys  
+**Course:** GIST 604B — Open Source GIS  
+**Module:** 2 QGIS Desktop GIS  
+**University of Arizona**  
+
+```{=html}
+<h3>Project Description</h3>
+```  
+This repository contains the project files and output screenshots for a selection of 10 QGIS tutorials. These tutorials were completed as an assigment for the University of Arizona's GIST 604B Open Source GIS class. All tutorials are located at www.qgistutorials.com
+
+These tutorials are intended to teach how to perform basic GIS skills using the QGIS platform. They include basic skills such as analysis, importing and modifying data, projections, as well as queries and joins.
+
+```{=html}
+<h3>Software used</h3>
+``` 
+- QGIS Desktop 3.44.9  
+- Windows 11 PRO 10.0.26200 Build 26200  
+- No plugins utilized  
+
+```{=html}
+<h3>Completed Tutorials</h3>
+```
+- Making a Map  
+- Working with Projections  
+- Working with Attributes  
+- Importing Spreadsheets or CSV files  
+- Basic Vector Styling  
+- Basic Raster Styling and Analysis  
+- Performing Table Joins  
+- Performing Spatial Joins  
+- Performing Spatial Queries  
+- Creating Heatmaps  
+
+```{=html}
+<h3>Skills Demonstrated</h3>
+``` 
+- Utilization of QGIS Desktop  
+- Projecting from Geographic Coordinate Sytems  
+- Selecting Attributes through filters and queries  
+- Importing Data  
+- Layer styling  
+- Raster and vector analysis  
+- Spatial queries and joins  
+
+```{=html}
+<h3>How to View</h3>
+```  
+Project Files can be viewed in the [projects folder](https://github.com/dessak/gist-604b-assignment2/tree/main/projects). Output screenshots can be viewed in the [outputs folder](https://github.com/dessak/gist-604b-assignment2/tree/main/outputs).
+
+
+```{=html}
+<h2>Python, Dataframe, and Containerization Introduction</h2>
+```
+**Student:** Dessa Keys  
+**Course:** 604B — Open Source GIS  
+**Module:** 3 Python GIS and Containerization  
+**University of Arizona**
+
+```{=html}
+<h3>Project Description</h3>
+```
+This project introduces containerization using Docker. It also introduced dataframes as well as spatial dataframes using GeoPandas and analysis for vector data and Rasterio for raster data.
+
+```{=html}
+<h3>Tools and Technologies</h3>
+```
+- Docker  
+- Pandas  
+- Geopandas  
+- Rasterio  
+- Jupyter Notebook  
+
+```{=html}
+<h3>What I did</h3>
+```
+- Launch containerized environment using Docker  
+- Process non spatial data with Pandas  
+- Process vectorized spatial data with Geopandas  
+- Process raster data with Rasterio  
+- Create processing python scripts  
+
+```{=html}
+<h3>How to View / Run</h3>
+```
+Initial Processing steps can be viewed in the Jupyter Notebooks in the [notebooks folder](https://github.com/dessak/gist604b-python-sp26/tree/main/notebooks). Python scripts can be run within containerized Python environment.
+
+```{=html}
+<h3>Repository Structure</h3>
+```
+
+    .
+    ├── README.md
+    ├── .devcontainer
+    │   ├── devcontainer.json
+    │   ├── Dockerfile
+    ├── data/
+    │   ├── neighborhood_samples.geojson
+    │   ├── temperature_readings.csv
+    │   └── weather_stations.csv
+    ├── notebooks/
+    │   ├── pandas/
+    │   ├── geopandas/
+    │   └── rasterio/
+    ├── src/
+    │   ├── pandas_basics.py
+    │   ├── geopandas_basics.py
+    │   └── download_real_data.py
+    ├── tests/
+    │   ├── test_pandas_basics.py
+    │   └── test_geopandas_basics.py
+    ├── pyproject.toml
+    └── uv.lock
+
+```{=html}
+<h2>SQL Queries of New York Features and Census Data</h2>
+```
+**Student:** Dessa Keys  
+**Course:** GIST 604B — Open Source GIS  
+**Module:** 4 PostGIS & Containerization  
+**University of Arizona**
+
+```{=html}
+<h3>Project Description</h3>
+```
+This project was created to learn how to run PostgreSQL queries as well as run queries on spatial data using PostGIS to host a geospatial database. Demo Queries were provided as a guide for how to run queries.
+
+```{=html}
+<h3>Tools and Technologies</h3>
+```
+- Docker  
+- PostgreSQL  
+- PostGIS  
+- Codespace  
+
+```{=html}
+<h3>What I did</h3>
+```
+- Initialized Docker container
+- Ran Demo queries
+- Queried Data
+
+```{=html}
+<h3>How to view</h3>
+```
+Queries can be viewed by opening files in the [sql folder](https://github.com/dessak/gist604b-postgis-sp26/tree/main/sql) of the repository.
+
+```{=html}
+<h3>Repository Structure</h3>
+```
+
+    .
+    ├── README.md
+    ├── .devcontainer
+    │   ├── devcontainer.json
+    │   └── Dockerfile
+    ├── sql/
+    │   ├── 01_basic_sql_queries.sql
+    │   ├── 02_geometry_queries.sql
+    │   ├── 03_spatial_relationships.sql
+    │   └── 04_spatial_joins.sql
+    ├── demos/
+    │   ├── demo_aggregation_queries.sql
+    │   ├── demo_basic_queries.sql
+    │   ├── demo_filtering_queries.sql
+    │   └── demo_postgis_queries.sql
+    └── docker-compose.yml
+
+
+```{=html}
+<h2>PostGIS Analysis of Features in Arizona and Oregon</h2>
+```
+
+**Student:** Dessa Keys  
+**Course:** GIST 604B — Open Source GIS  
+**Module:** 5 OSM & PostGIS  
+**University of Arizona**
+
+```{=html}
+<h3>Project Description</h3>
+```
+This project uses provided walkthroughs to do analysis on features in Arizona OSM data. These models were then used to do analysis on features in the State of Oregon. Analyzed features in Oregon include transportation distribution, road length by county, and public transport density by county. Queries were created in SQL and then processed through PostGIS.
+
+```{=html}
+<h3>Tools and Technologies</h3>
+```
+- Codespace  
+- SQL  
+- PostGIS
+- GeoPandas
+- Jupyter Notebooks
+
+```{=html}
+<h3>What I did</h3>
+```
+- Complete walkthroughs
+- Download OSM data from Geofabrik
+- Create SQL queries
+- Process data with PostGIS & GeoPandas
+
+```{=html}
+<h3>How to view</h3>
+```
+Results of analysis can be viewed in the [osm_postgis_oregon.ipynb notebook] (https://github.com/dessak/gist604b-osm-postgis-sp26/blob/main/notebooks/osm_postgis_oregon.ipynb)
+
+
+```{=html}
+<h3>Repository Structure</h3>
+```
+  
+  
+    . 
+    ├── .devcontainer/
+    │   ├── Dockerfile
+    │   └── devcontainer.json
+    ├── notebooks/
+    │   ├── setup_osm_postgis.ipynb
+    │   ├── osm_postgis_queries.ipynb
+    │   └── osm_postgis_oregon.ipynb
+    ├── sql/
+    │   ├── arizona/
+    │   │   ├── 01_osm_restaurant_distribution.sql
+    │   │   ├── 02_osm_park_area_by_county.sq 
+    │   │   ├── 03_osm_restaurants_near_streets.sql
+    │   │   ├── 04_osm_railway_density_by_county.sql
+    │   │   └── 05_osm_county_amenity_synthesis.sql
+    │   └── oregon/
+    │       ├── 01_osm_transport_distribution.sql
+    │       ├── 02_osm_road_length_by_county.sql
+    │       └── 03_osm_public_transport_density_by_county.sql
+    ├── src/
+    │   └── setup_osm_postgis.py
+    ├── .gitignore
+    ├── docker-compose.yml
+    ├── pyproject.toml
+    ├── uv.lock
+    └── README.md
+
+
+```{=html}
+<h2>Public Transportation in Oregon</h2>
+```
+**Student:** Dessa Keys  
+**Course:** GIST 604B — Open Source GIS  
+**Module:** 6 WebGIS & Full-Stack Orchestration  
+**University of Arizona**  
+
+```{=html}
+<h3>Project Description</h3>
+```
+This repository uses HTML, CSS, JavaScript, and Leaflet to complete the requirements for Module 6 of the 604B — Open Source GIS class. In this module a leaflet map was created to visualize public transportation in the State of Oregon. Layers include City Boundries, public transportation stops, and a layer with busways and pedestrian paths.
+
+```{=html}
+<h3>Tools and Technologies</h3>
+```
+-QGIS  
+-Leaflet  
+-Visual Studio Code  
+
+```{=html}
+<h3>What I did</h3>
+```
+-Downloaded Data from Geofrabik  
+-Processed in QGIS  
+-Produced webmap in VS Code using leaflet  
+
+```{=html}
+<h3>Interactive Webmap</h3>
+```
+```{=html}
+<iframe
+  src=" https://dessak.github.io/gist604b-webgis-leaflet-sp26/"
+  style="width:100%; height:100vh; border:none; margin:0; padding:0; display:block;"
+  allowfullscreen
+  allow="geolocation">
+</iframe>
+```
+
+```{=html}
+<h3>Repository Structure</h3>
+```
+    .
+    ├── data/
+    │   ├── administrative_areas.geojson
+    │   ├── busway_and_pedestrian.geojson
+    │   └── transport_stops.geojson
+    ├── js/
+    │   └── map.js
+    ├── css/
+    │   └── style.css
+    ├── index.html
+    ├── package.json
+    ├── package-lock.json
+    └── README.md
 # Web GIS
 
 ```{=html}
