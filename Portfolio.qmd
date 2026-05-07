@@ -280,7 +280,7 @@ This repository uses HTML, CSS, JavaScript, and Leaflet to complete the requirem
 ```
 ```{=html}
 <iframe
-  src=" https://dessak.github.io/gist604b-webgis-leaflet-sp26/"
+  src=" https://dessak.github.io/gist604b-webgis-leaflet-sp26"
   style="width:100%; height:100vh; border:none; margin:0; padding:0; display:block;"
   allowfullscreen
   allow="geolocation">
